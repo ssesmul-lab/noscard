@@ -1,0 +1,1608 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>과학의 본성 카드</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="12명의 스타 과학자와 함께 4가지 게임으로 즐기며 배우는 과학의 본성 카드(과본카). 뺏고 뺏기는 카드 놀이부터 나와 친구의 관점을 들여다보는 토론 활동까지.">
+<meta property="og:title" content="과학의 본성 카드 · 과본카">
+<meta property="og:description" content="스타 과학자와 함께 하는 알쏭달쏭 과학의 본성">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Jua&family=Noto+Sans+KR:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretendard@1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+:root{
+  color-scheme: light;
+  /* 밤하늘 (패키지) */
+  --sky-top:#1b6298; --sky-mid:#1d4a7c; --night:#152843; --deep:#0d1a2f;
+  --ink:#13284a; --ink-soft:#3c5276; --muted:#6b7a92;
+  --paper:#fbf7ee; --paper-2:#f3ebd9; --card:#ffffff; --line:rgba(19,40,74,.12);
+  /* 브랜드 글자색 (패키지 타이틀) */
+  --orange:#f9a43f; --butter:#ffe066; --green:#4abd61; --lime:#c7e34b; --sky:#56d2f5;
+  --blue:#2f9fe0; --purple:#9b7ab6; --lilac:#c4a8dc; --pink:#f47f8c; --blush:#f9bec3;
+  --yellow:#ffe738; --mint:#5cd5c8; --sky-wash:#e6f1fa;
+  /* 6가지 관점 (카드 뒷면) */
+  --p1:#ef8f6b; --p2:#8cc63f; --p3:#ec7a8c; --p4:#dcb400; --p5:#3fc1c9; --p6:#6e73c0;
+  --radius:22px;
+  --shadow:0 18px 40px -18px rgba(13,26,47,.45);
+  --font-body:'Pretendard Variable',Pretendard,'Noto Sans KR',-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Malgun Gothic',sans-serif;
+  --font-fun:'Jua','Pretendard Variable',sans-serif;
+  --font-logo:'Black Han Sans','Jua',sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{margin:0;font-family:var(--font-body);color:var(--ink);background:var(--paper);font-size:17px;line-height:1.7;word-break:keep-all;overflow-wrap:break-word;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+button{font:inherit;color:inherit;cursor:pointer}
+.container{width:min(1180px,100%);margin:0 auto;padding-left:max(24px,env(safe-area-inset-left,0px));padding-right:max(24px,env(safe-area-inset-right,0px))}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+:focus-visible{outline:3px solid var(--yellow);outline-offset:3px;border-radius:8px}
+
+/* ---------- 공통: 별 배경 ---------- */
+.starry{position:relative;color:#fff;background:
+  radial-gradient(1.4px 1.4px at 12% 18%,rgba(255,255,255,.9) 50%,transparent 52%),
+  radial-gradient(1px 1px at 32% 64%,rgba(255,255,255,.7) 50%,transparent 52%),
+  radial-gradient(1.8px 1.8px at 58% 30%,rgba(255,255,255,.85) 50%,transparent 52%),
+  radial-gradient(1px 1px at 76% 78%,rgba(255,255,255,.6) 50%,transparent 52%),
+  radial-gradient(1.3px 1.3px at 90% 12%,rgba(255,255,255,.8) 50%,transparent 52%),
+  radial-gradient(1px 1px at 44% 92%,rgba(255,255,255,.6) 50%,transparent 52%);
+  background-size:340px 300px;background-color:var(--night)}
+.starry.gradient{background-color:transparent;background-image:
+  radial-gradient(1.4px 1.4px at 12% 18%,rgba(255,255,255,.9) 50%,transparent 52%),
+  radial-gradient(1px 1px at 32% 64%,rgba(255,255,255,.7) 50%,transparent 52%),
+  radial-gradient(1.8px 1.8px at 58% 30%,rgba(255,255,255,.85) 50%,transparent 52%),
+  radial-gradient(1px 1px at 76% 78%,rgba(255,255,255,.6) 50%,transparent 52%),
+  radial-gradient(1.3px 1.3px at 90% 12%,rgba(255,255,255,.8) 50%,transparent 52%),
+  linear-gradient(180deg,var(--sky-mid) 0%,var(--night) 55%,var(--deep) 100%);
+  background-size:340px 300px,340px 300px,340px 300px,340px 300px,340px 300px,100% 100%}
+
+/* ---------- 버튼 ---------- */
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 26px;border-radius:999px;font-family:var(--font-fun);font-size:19px;text-decoration:none;border:0;transition:transform .15s ease,box-shadow .15s ease;line-height:1.2}
+.btn-yellow{background:var(--yellow);color:var(--ink);box-shadow:0 5px 0 #c9a500}
+.btn-yellow:hover{transform:translateY(-2px);box-shadow:0 7px 0 #c9a500}
+.btn-yellow:active{transform:translateY(3px);box-shadow:0 2px 0 #c9a500}
+.btn-ghost{background:rgba(255,255,255,.08);color:#fff;box-shadow:inset 0 0 0 2px rgba(255,255,255,.55)}
+.btn-ghost:hover{background:rgba(255,255,255,.16)}
+.btn-ink{background:var(--ink);color:#fff;box-shadow:0 5px 0 #07142a}
+.btn-ink:hover{transform:translateY(-2px)}
+
+/* ---------- 내비게이션 ---------- */
+.nav{position:fixed;inset:0 0 auto 0;z-index:50;padding-top:env(safe-area-inset-top,0px);transition:background .3s ease,box-shadow .3s ease,backdrop-filter .3s}
+.nav.scrolled{background:rgba(13,26,47,.86);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:0 6px 24px -12px rgba(0,0,0,.5)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:68px;gap:16px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:#fff}
+.brand img{width:38px;height:auto;filter:drop-shadow(0 2px 3px rgba(0,0,0,.35))}
+.brand-word{font-family:var(--font-logo);font-size:24px;letter-spacing:.5px;line-height:1}
+.brand-word .b1{color:var(--orange)}.brand-word .b2{color:var(--green)}.brand-word .b3{color:var(--sky)}
+.brand small{display:block;font-family:var(--font-body);font-size:11px;color:rgba(255,255,255,.7);letter-spacing:.08em;margin-top:3px}
+.nav-links{display:flex;align-items:center;gap:4px;list-style:none;margin:0;padding:0}
+.nav-links a{display:block;padding:8px 12px;border-radius:999px;color:rgba(255,255,255,.88);text-decoration:none;font-size:15px;font-weight:600;transition:background .2s,color .2s}
+.nav-links a:hover,.nav-links a.active{background:rgba(255,255,255,.12);color:#fff}
+.nav-links .nav-cta{background:var(--yellow);color:var(--ink);margin-left:6px}
+.nav-links .nav-cta:hover{background:#fff27a;color:var(--ink)}
+.nav-toggle{display:none;background:none;border:0;width:44px;height:44px;border-radius:12px;color:#fff}
+.nav-toggle span{display:block;width:22px;height:2.5px;background:currentColor;margin:5px auto;border-radius:2px;transition:transform .25s,opacity .25s}
+.nav.open .nav-toggle span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
+.nav.open .nav-toggle span:nth-child(2){opacity:0}
+.nav.open .nav-toggle span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
+
+/* ---------- 히어로 ---------- */
+.hero{color:#fff;display:flex;align-items:center;overflow:hidden;padding:120px 0 110px;
+  background:linear-gradient(180deg,var(--sky-top) 0%,#1f548a 30%,var(--sky-mid) 52%,var(--night) 80%,var(--deep) 100%)}
+.sky-deco{position:absolute;inset:0;pointer-events:none}
+.stars{position:absolute;inset:0}
+.star{position:absolute;border-radius:50%;background:#fff;animation:twinkle var(--d,3s) ease-in-out infinite;animation-delay:var(--delay,0s)}
+.sparkle-star{position:absolute;color:#fff;font-size:var(--s,14px);line-height:1;animation:twinkle var(--d,4s) ease-in-out infinite;animation-delay:var(--delay,0s);text-shadow:0 0 8px rgba(255,255,255,.8)}
+@keyframes twinkle{0%,100%{opacity:var(--o,.8);transform:scale(1)}50%{opacity:.15;transform:scale(.6)}}
+.moon{position:absolute;top:12%;left:41%;width:84px;height:84px;border-radius:50%;
+  background:radial-gradient(circle at 30% 35%,rgba(160,160,160,.55) 0 7%,transparent 8%),radial-gradient(circle at 62% 60%,rgba(150,150,150,.5) 0 11%,transparent 12%),radial-gradient(circle at 70% 28%,rgba(170,170,170,.45) 0 5%,transparent 6%),radial-gradient(circle at 38% 72%,rgba(160,160,160,.45) 0 6%,transparent 7%),radial-gradient(circle at 40% 40%,#ffffff,#d9dbe0 60%,#a9adb6);
+  box-shadow:0 0 40px 6px rgba(255,255,255,.28)}
+.planet{position:absolute;border-radius:50%}
+.jupiter{width:150px;height:150px;right:-38px;top:16%;opacity:.9;
+  background:linear-gradient(170deg,#f6d6a4 0 12%,#d99b5a 12% 22%,#f0c38c 22% 34%,#b8703c 34% 42%,#efc48d 42% 58%,#c98448 58% 66%,#f3cf9c 66% 80%,#d09050 80%);
+  box-shadow:inset -22px -14px 40px rgba(40,20,10,.55),0 0 50px rgba(249,164,63,.25)}
+.violet{width:46px;height:46px;left:31%;top:86%;background:radial-gradient(circle at 35% 35%,#c9a6ff,#7b4fc9 55%,#3c2470);box-shadow:0 0 30px rgba(155,122,182,.5)}
+.earth{width:300px;height:300px;right:7%;bottom:-190px;
+  background:radial-gradient(circle at 30% 30%,#54c45f 0 9%,transparent 10%),radial-gradient(circle at 62% 22%,#4caf50 0 12%,transparent 13%),radial-gradient(circle at 48% 52%,#3fa14a 0 8%,transparent 9%),radial-gradient(circle at 75% 55%,#5cc466 0 7%,transparent 8%),radial-gradient(circle at 40% 40%,#4fb4ff,#1f6fd1 60%,#0d3a7a);
+  box-shadow:inset -30px -30px 60px rgba(0,0,0,.45),0 0 70px 10px rgba(86,210,245,.25)}
+.shooting{position:absolute;top:22%;left:-10%;width:140px;height:2px;background:linear-gradient(90deg,rgba(255,255,255,0),#fff);border-radius:2px;transform:rotate(18deg);opacity:0;animation:shoot 9s ease-in 2s infinite}
+@keyframes shoot{0%{transform:translate(0,0) rotate(18deg);opacity:0}3%{opacity:1}12%{transform:translate(70vw,23vw) rotate(18deg);opacity:0}100%{opacity:0}}
+
+.hero-grid{position:relative;display:grid;grid-template-columns:1.02fr 1fr;align-items:center;gap:24px;z-index:2}
+.badge-row{display:flex;align-items:center;gap:14px;margin-bottom:18px;flex-wrap:wrap}
+.age-badge{display:inline-flex;flex-direction:column;align-items:center;justify-content:center;width:74px;height:74px;border-radius:50%;background:#5aa2d3;color:#fff;box-shadow:0 0 0 4px rgba(255,255,255,.18);line-height:1}
+.age-badge b{font-size:28px;font-weight:800}
+.age-badge small{font-size:9px;font-weight:800;letter-spacing:.06em;margin-top:3px}
+.eyebrow{font-size:14px;letter-spacing:.06em;color:rgba(255,255,255,.75);font-weight:600}
+.hero-kicker{font-family:var(--font-fun);font-size:clamp(20px,2.2vw,26px);margin:0 0 4px;color:#dfe9ff}
+.title{margin:0;line-height:1.02;font-family:var(--font-logo);font-weight:400;font-size:clamp(60px,7.6vw,112px);letter-spacing:-.01em;display:flex;align-items:center;flex-wrap:wrap;gap:.1em .1em}
+.title-word{display:inline-flex;align-items:flex-end;white-space:nowrap;gap:0 .04em}
+.title .ch{display:inline-block;-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 6px 0 rgba(6,16,38,.55));transition:transform .25s cubic-bezier(.3,1.6,.5,1)}
+.title .ch:hover{transform:translateY(-10px) rotate(-4deg)}
+.c1{background-image:linear-gradient(160deg,var(--butter) 0 40%,var(--orange) 40%);transform:rotate(-3deg)}
+.c2{background-image:linear-gradient(205deg,var(--lime) 0 34%,var(--green) 34%);transform:rotate(2deg)}
+.c3{font-size:.6em;background-image:linear-gradient(180deg,var(--sky) 0 52%,var(--blue) 52%);margin-right:.18em;transform:translateY(-.08em)}
+.c4{background-image:linear-gradient(172deg,var(--lilac) 0 44%,var(--purple) 44%);transform:rotate(-2deg)}
+.c5{background-image:linear-gradient(150deg,var(--blush) 0 38%,var(--pink) 38%);transform:rotate(3deg)}
+.title-sticker{align-self:center;margin-left:.2em;font-family:var(--font-fun);font-size:.32em;background:var(--yellow);color:var(--ink);padding:.18em .5em .12em;border-radius:.35em;transform:rotate(8deg);box-shadow:0 5px 0 #c9a500;letter-spacing:0}
+.hero-sub{font-family:var(--font-fun);font-size:clamp(22px,2.6vw,32px);line-height:1.35;margin:22px 0 10px;color:#fff;text-shadow:0 3px 0 rgba(0,0,0,.25)}
+.hero-yellow{font-family:var(--font-fun);color:var(--yellow);font-size:clamp(18px,1.9vw,22px);margin:0 0 28px;line-height:1.5}
+.cta-row{display:flex;gap:14px;flex-wrap:wrap}
+.hero-facts{list-style:none;margin:30px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:10px}
+.hero-facts li{display:flex;align-items:center;gap:8px;padding:8px 14px 8px 10px;border-radius:14px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);font-size:15px;font-weight:600}
+.hero-facts svg{width:22px;height:22px;flex:none}
+
+.hero-art{position:relative;aspect-ratio:1/1;display:grid;place-items:center}
+.orbit{position:absolute;width:96%;height:46%;border:2px dashed rgba(255,255,255,.22);border-radius:50%;transform:rotate(-14deg);top:30%}
+.orbit::after{content:"";position:absolute;width:18px;height:18px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#ffb3be,#f47f8c 60%,#b84a5c);top:-9px;left:50%;offset-path:none;animation:orbitDot 12s linear infinite}
+@keyframes orbitDot{0%{left:50%;top:-9px}25%{left:calc(100% - 9px);top:calc(50% - 9px)}50%{left:50%;top:calc(100% - 9px)}75%{left:-9px;top:calc(50% - 9px)}100%{left:50%;top:-9px}}
+.hero-glow{position:absolute;width:70%;height:70%;border-radius:50%;background:radial-gradient(circle,rgba(255,231,56,.28),rgba(255,231,56,0) 65%);filter:blur(6px)}
+.einstein{position:relative;width:min(560px,100%);filter:drop-shadow(0 26px 30px rgba(0,0,0,.45));animation:float 6s ease-in-out infinite;will-change:transform}
+@keyframes float{0%,100%{transform:translate(0,0) rotate(-1.5deg)}50%{transform:translate(-6px,-22px) rotate(1.5deg)}}
+.parallax{transition:transform .4s ease-out}
+.think{position:absolute;top:2%;left:-4%;max-width:230px;background:#fff;color:var(--ink);border-radius:22px;padding:14px 18px;font-family:var(--font-fun);font-size:17px;line-height:1.4;box-shadow:0 10px 0 rgba(0,0,0,.18);animation:bob 5s ease-in-out infinite}
+.think::after{content:"";position:absolute;bottom:-14px;right:42px;width:22px;height:22px;background:#fff;border-radius:50%}
+.think::before{content:"";position:absolute;bottom:-30px;right:28px;width:12px;height:12px;background:#fff;border-radius:50%}
+.think small{display:block;font-family:var(--font-body);font-size:12px;color:var(--muted);margin-top:4px}
+.woof{position:absolute;bottom:31%;left:-3%;background:var(--yellow);color:var(--ink);font-family:var(--font-fun);font-size:16px;padding:6px 14px;border-radius:999px;transform:rotate(-8deg);box-shadow:0 4px 0 #c9a500;animation:bob 4s ease-in-out .8s infinite}
+@keyframes bob{0%,100%{translate:0 0}50%{translate:0 -8px}}
+.scroll-cue{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);z-index:3;color:rgba(255,255,255,.75);font-size:13px;text-decoration:none;display:flex;flex-direction:column;align-items:center;gap:6px}
+.scroll-cue i{display:block;width:22px;height:34px;border:2px solid currentColor;border-radius:12px;position:relative}
+.scroll-cue i::after{content:"";position:absolute;left:50%;top:7px;width:4px;height:7px;margin-left:-2px;background:currentColor;border-radius:2px;animation:wheel 1.6s ease-in-out infinite}
+@keyframes wheel{0%{opacity:1;transform:translateY(0)}100%{opacity:0;transform:translateY(10px)}}
+
+/* ---------- 마키 띠 ---------- */
+.ribbon-wrap{overflow:hidden;margin-top:-40px;padding:14px 0 18px;position:relative;z-index:5}
+.ribbon{background:var(--yellow);color:var(--ink);overflow:hidden;transform:rotate(-1.2deg);margin:0 -14px;box-shadow:0 8px 0 rgba(13,26,47,.12);border-block:3px solid var(--ink)}
+.ribbon-track{display:flex;width:max-content;animation:marquee 38s linear infinite}
+.ribbon-track span{font-family:var(--font-fun);font-size:20px;padding:14px 26px;white-space:nowrap;display:flex;align-items:center;gap:26px}
+.ribbon-track span::after{content:"★";color:var(--pink)}
+@keyframes marquee{to{transform:translateX(-50%)}}
+
+/* ---------- 섹션 공통 ---------- */
+section{position:relative}
+.section{padding:120px 0}
+.sec-head{display:flex;align-items:flex-end;gap:10px;margin-bottom:22px}
+.sec-head.center{justify-content:center}
+.sec-pup{width:62px;height:auto;flex:none;filter:drop-shadow(0 4px 0 rgba(13,26,47,.15));transform-origin:bottom center;animation:wag 3.2s ease-in-out infinite}
+@keyframes wag{0%,100%{transform:rotate(0)}40%{transform:rotate(-6deg)}60%{transform:rotate(5deg)}}
+.bubble{position:relative;margin:0 0 30px;display:inline-block;background:#fff;color:var(--ink);border:3px solid var(--ink);border-radius:26px;padding:10px 26px 8px;font-family:var(--font-fun);font-weight:400;font-size:clamp(28px,3.6vw,42px);line-height:1.25;box-shadow:0 6px 0 var(--ink)}
+.bubble::before{content:"";position:absolute;left:-14px;bottom:10px;width:22px;height:22px;background:#fff;border-left:3px solid var(--ink);border-bottom:3px solid var(--ink);transform:skewY(-30deg) rotate(10deg);border-radius:0 0 0 6px}
+.starry .bubble{box-shadow:0 6px 0 rgba(0,0,0,.35)}
+.kicker{font-size:14px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);margin:0 0 6px}
+.starry .kicker{color:var(--sky)}
+.lead{font-size:clamp(17px,1.6vw,20px);color:var(--ink-soft);max-width:760px;margin:0 0 48px}
+.starry .lead{color:rgba(255,255,255,.82)}
+.center{text-align:center}
+.center .lead{margin-left:auto;margin-right:auto}
+h3{font-family:var(--font-fun);font-weight:400;font-size:clamp(24px,2.4vw,30px);line-height:1.3;margin:0 0 12px}
+.reveal{transform:translateY(18px);transition:transform .8s cubic-bezier(.2,.8,.2,1)}
+.reveal.in{transform:none}
+
+/* ---------- 과본카란? ---------- */
+.about{background:var(--paper);overflow:hidden}
+.voices{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin:10px 0 64px}
+.voice{position:relative;background:#fff;border-radius:24px;padding:26px 24px 22px;box-shadow:var(--shadow);border:2px solid var(--line)}
+.voice::after{content:"";position:absolute;bottom:-12px;left:42px;width:24px;height:24px;background:#fff;border-right:2px solid var(--line);border-bottom:2px solid var(--line);transform:rotate(45deg)}
+.voice q{display:block;font-family:var(--font-fun);font-size:24px;line-height:1.35;quotes:"“" "”"}
+.voice span{display:inline-block;margin-top:12px;font-size:13px;font-weight:700;padding:3px 10px;border-radius:999px;background:var(--paper-2);color:var(--ink-soft)}
+.voice:nth-child(1) q{color:#d9771a}.voice:nth-child(2) q{color:#2f9b4a}.voice:nth-child(3) q{color:#7a58a0}
+.about-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:56px;align-items:center}
+.about-copy .big{font-family:var(--font-fun);font-size:clamp(28px,3.2vw,40px);line-height:1.3;margin:0 0 20px}
+.about-copy .big em{font-style:normal;background:linear-gradient(transparent 62%,rgba(255,231,56,.85) 62%);padding:0 4px}
+.about-copy p{margin:0 0 16px;color:var(--ink-soft)}
+.about-copy strong{color:var(--ink)}
+.fan-wrap{position:relative}
+.fan-wrap img{width:100%;border-radius:28px;background:#fff;box-shadow:var(--shadow)}
+.fan-sticker{position:absolute;right:-10px;bottom:-18px;background:var(--ink);color:#fff;font-family:var(--font-fun);font-size:18px;padding:12px 18px;border-radius:18px;transform:rotate(-5deg);box-shadow:0 6px 0 rgba(0,0,0,.2)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin:72px 0 0}
+.stat{background:#fff;border-radius:24px;padding:24px 18px;text-align:center;border:2px solid var(--line);position:relative;overflow:hidden}
+.stat::before{content:"";position:absolute;inset:0 0 auto 0;height:7px;background:var(--c)}
+.stat b{display:block;font-family:var(--font-logo);font-weight:400;font-size:clamp(46px,5vw,64px);line-height:1.05;color:var(--c)}
+.stat span{font-family:var(--font-fun);font-size:19px}
+.stat small{display:block;font-size:13px;color:var(--muted);margin-top:4px}
+
+/* 구성품 */
+.kit{margin-top:110px}
+.kit-photo{position:relative;background:#fff;border-radius:30px;padding:26px;box-shadow:var(--shadow)}
+.kit-photo img{border-radius:18px;width:100%}
+.kit-tag{position:absolute;top:-16px;transform:translateX(-50%);background:var(--ink);color:#fff;font-family:var(--font-fun);font-size:18px;padding:8px 18px;border-radius:12px;white-space:nowrap}
+.kit-tag::after{content:"";position:absolute;left:50%;bottom:-7px;margin-left:-7px;border:7px solid transparent;border-bottom:0;border-top-color:var(--ink)}
+.kit-notes{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:28px}
+.kit-notes div{padding:20px 22px;border-radius:20px;background:var(--paper-2)}
+.kit-notes b{font-family:var(--font-fun);font-weight:400;font-size:21px;display:block;margin-bottom:4px}
+.kit-notes p{margin:0;font-size:15px;color:var(--ink-soft)}
+
+/* 카드 앞뒷면 */
+.anatomy{display:grid;grid-template-columns:auto auto 1fr;gap:36px;align-items:center;margin-top:84px}
+.ana-card{width:210px;aspect-ratio:600/1023;border-radius:4.6%/2.7%;overflow:hidden;box-shadow:var(--shadow);position:relative}
+.ana-card img{width:100%;height:100%;object-fit:cover}
+.ana-back{background:#fff;border:10px solid var(--p1);display:flex;flex-direction:column;padding:12px;gap:10px;transition:border-color .35s}
+.ana-back .bk-top{background:color-mix(in srgb,var(--bk,var(--p1)) 18%,#fff);border-radius:10px;padding:10px;flex:1.1}
+.ana-back .bk-bottom{background:color-mix(in srgb,var(--bk,var(--p1)) 30%,#fff);border-radius:10px;padding:10px;flex:1}
+.ana-back .bk-name{font-family:var(--font-fun);font-size:14px;text-align:center;margin-bottom:8px}
+.ana-back i{display:block;height:6px;border-radius:3px;background:rgba(19,40,74,.18);margin:7px 0}
+.ana-label{font-family:var(--font-fun);font-size:17px;text-align:center;margin-top:12px}
+.ana-list{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+.ana-list li{display:flex;gap:14px;align-items:flex-start;background:#fff;border-radius:18px;padding:16px 18px;border:2px solid var(--line)}
+.ana-list .dot{flex:none;width:30px;height:30px;border-radius:50%;background:var(--ink);color:#fff;display:grid;place-items:center;font-weight:800;font-size:14px}
+.ana-list b{display:block;font-family:var(--font-fun);font-weight:400;font-size:19px}
+.ana-list p{margin:2px 0 0;font-size:15px;color:var(--ink-soft)}
+.swatches{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}
+.swatches button{width:28px;height:28px;border-radius:8px;border:3px solid #fff;box-shadow:0 0 0 2px var(--line);background:var(--c);padding:0}
+.swatches button[aria-pressed="true"]{box-shadow:0 0 0 3px var(--ink)}
+
+/* ---------- 과학자 ---------- */
+.scientists{overflow:hidden}
+.sci-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:22px}
+.sci-card{position:relative;background:none;border:0;padding:0;text-align:center;color:#fff;perspective:900px}
+.sci-img{display:block;border-radius:4.6%/2.7%;overflow:hidden;aspect-ratio:600/1023;box-shadow:0 16px 30px -12px rgba(0,0,0,.6);transform-style:preserve-3d;transition:transform .35s cubic-bezier(.2,.9,.3,1.3),box-shadow .35s;background:#fff}
+.sci-img img{width:100%;height:100%;object-fit:cover}
+.sci-card:hover .sci-img,.sci-card:focus-visible .sci-img{transform:translateY(-12px) rotate(var(--tilt,-2deg)) scale(1.03);box-shadow:0 26px 40px -14px rgba(0,0,0,.7),0 0 0 4px var(--pc)}
+.sci-card:nth-child(even){--tilt:2deg}
+.sci-meta{display:block;margin-top:14px;line-height:1.35}
+.sci-meta b{display:block;font-family:var(--font-fun);font-weight:400;font-size:19px}
+.sci-meta small{font-size:13px;color:rgba(255,255,255,.65)}
+.sci-num{position:absolute;top:-10px;left:-8px;z-index:2;width:34px;height:34px;border-radius:50%;background:var(--pc);color:var(--ink);font-weight:800;font-size:15px;display:grid;place-items:center;box-shadow:0 4px 0 rgba(0,0,0,.25)}
+.timeline{margin-top:90px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:28px;padding:30px 30px 22px}
+.tl-head{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;margin-bottom:16px}
+.tl-head h3{margin:0}
+.tl-head p{margin:0;color:rgba(255,255,255,.7);font-size:15px}
+.tl-axis{position:relative;height:22px;margin-left:var(--labelw);font-size:12px;color:rgba(255,255,255,.55)}
+.tl-axis span{position:absolute;transform:translateX(-50%)}
+.tl-row{display:grid;grid-template-columns:var(--labelw) 1fr;align-items:center;gap:0;min-height:30px;background:none;border:0;width:100%;padding:0;color:#fff;text-align:left;border-radius:8px}
+.tl-row:hover .tl-bar{filter:brightness(1.12);box-shadow:0 0 0 2px #fff}
+.tl-row .tl-name{font-size:14px;font-weight:600;padding-right:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tl-track{position:relative;height:30px;background:repeating-linear-gradient(90deg,rgba(255,255,255,.07) 0 1px,transparent 1px calc(100%/9.5))}
+.tl-bar{position:absolute;top:7px;height:16px;border-radius:8px;background:var(--pc);transition:box-shadow .2s,filter .2s}
+.tl-bar.alive{background:linear-gradient(90deg,var(--pc) 70%,rgba(255,255,255,0))}
+.tl-bar em{position:absolute;left:calc(100% + 6px);top:-2px;font-style:normal;font-size:12px;color:rgba(255,255,255,.7);white-space:nowrap}
+.tl-bar.alive em{left:100%}
+
+/* 모달 */
+dialog.sci-modal{border:0;padding:0;border-radius:30px;width:min(920px,calc(100% - 32px));max-height:calc(100vh - 40px);background:var(--paper);color:var(--ink);box-shadow:0 30px 80px rgba(0,0,0,.5);overflow:auto}
+dialog.sci-modal::backdrop{background:rgba(8,16,32,.72);backdrop-filter:blur(4px)}
+.modal-inner{display:grid;grid-template-columns:300px 1fr;gap:34px;padding:34px;position:relative}
+.modal-card{border-radius:4.6%/2.7%;overflow:hidden;box-shadow:var(--shadow);align-self:start;aspect-ratio:600/1023;background:#fff}
+.modal-card img{width:100%;height:100%;object-fit:cover}
+.modal-top{display:flex;align-items:center;gap:10px;margin-bottom:6px}
+.modal-no{background:var(--pc);border-radius:999px;padding:3px 12px;font-weight:800;font-size:14px}
+.modal-field{font-size:14px;color:var(--muted);font-weight:600}
+.modal-name{font-family:var(--font-fun);font-size:clamp(30px,3.4vw,40px);line-height:1.2;margin:4px 0 0}
+.modal-en{color:var(--muted);font-size:15px;margin:2px 0 18px}
+.modal-sec{background:#fff;border-radius:18px;padding:16px 18px;margin-bottom:12px;border:2px solid var(--line)}
+.modal-sec h4{margin:0 0 4px;font-family:var(--font-fun);font-weight:400;font-size:18px;display:flex;align-items:center;gap:8px}
+.modal-sec h4::before{content:"";width:10px;height:10px;border-radius:3px;background:var(--pc);box-shadow:0 0 0 2px rgba(19,40,74,.15)}
+.modal-sec p{margin:0;font-size:15.5px;color:var(--ink-soft)}
+.modal-cards{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
+.modal-cards span{display:inline-flex;align-items:center;gap:6px;font-size:13.5px;font-weight:700;padding:5px 11px;border-radius:999px;background:color-mix(in srgb,var(--c) 20%,#fff);border:2px solid var(--c)}
+.modal-close{position:absolute;top:14px;right:14px;width:42px;height:42px;border-radius:50%;border:0;background:var(--ink);color:#fff;font-size:22px;line-height:1;z-index:2}
+.modal-nav{display:flex;gap:10px;margin-top:16px}
+.modal-nav button{flex:1;padding:12px;border-radius:14px;border:2px solid var(--ink);background:#fff;font-family:var(--font-fun);font-size:17px}
+.modal-nav button:hover{background:var(--ink);color:#fff}
+
+/* ---------- 6가지 관점 ---------- */
+.persp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.persp{position:relative;background:#fff;border-radius:26px;padding:0 0 22px;overflow:hidden;border:3px solid var(--c);box-shadow:0 10px 0 color-mix(in srgb,var(--c) 35%,transparent);transition:transform .25s}
+.persp:hover{transform:translateY(-6px)}
+.persp-top{background:var(--c);color:#fff;padding:18px 22px 64px;position:relative}
+.persp-top .no{font-size:13px;font-weight:800;letter-spacing:.08em;opacity:.92}
+.persp-top h3{margin:2px 0 0;font-size:28px;text-shadow:0 2px 0 rgba(0,0,0,.12)}
+.persp-fan{position:absolute;right:16px;bottom:-46px;height:104px;width:150px}
+.persp-fan img{position:absolute;bottom:0;width:58px;aspect-ratio:600/1023;object-fit:cover;border-radius:5px;border:2px solid #fff;box-shadow:0 6px 12px -4px rgba(0,0,0,.4);transform-origin:bottom center}
+.persp p{margin:58px 22px 0;color:var(--ink-soft);font-size:16px}
+.persp .range{display:inline-block;margin:14px 22px 0;font-size:13px;font-weight:700;color:color-mix(in srgb,var(--c) 70%,#13284a);background:color-mix(in srgb,var(--c) 14%,#fff);padding:4px 12px;border-radius:999px}
+.balance-note{margin:44px auto 0;max-width:860px;display:flex;gap:22px;align-items:center;background:var(--ink);color:#fff;border-radius:26px;padding:26px 30px}
+.balance-note img{width:96px;flex:none;filter:drop-shadow(0 8px 10px rgba(0,0,0,.35))}
+.balance-note p{margin:0;font-size:17px}
+.balance-note b{color:var(--yellow);font-family:var(--font-fun);font-weight:400;font-size:21px;display:block;margin-bottom:4px}
+
+/* 관점 체험 */
+.try{margin-top:100px;background:#fff;border-radius:34px;padding:44px;box-shadow:var(--shadow);border:3px solid var(--ink);position:relative}
+.try-badge{position:absolute;top:-20px;left:40px;background:var(--pink);color:#fff;font-family:var(--font-fun);font-size:18px;padding:7px 18px;border-radius:999px;box-shadow:0 4px 0 #c25463}
+.try-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:44px;align-items:center}
+.try-intro h3{font-size:clamp(26px,2.8vw,34px)}
+.try-intro p{color:var(--ink-soft);margin:0 0 12px}
+.try-intro .rule{display:flex;gap:10px;align-items:center;background:var(--paper);border-radius:14px;padding:12px 14px;font-size:15px;margin-top:16px}
+.try-stage{min-height:360px;display:flex;flex-direction:column;justify-content:center}
+.dots{display:flex;gap:7px;justify-content:center;margin-bottom:18px}
+.dots i{width:28px;height:7px;border-radius:4px;background:var(--line);transition:background .3s}
+.dots i.on{background:var(--ink)}
+.stmt{position:relative;background:var(--paper);border-radius:24px;padding:36px 30px;text-align:center;border:2px dashed rgba(19,40,74,.25);animation:popIn .45s cubic-bezier(.2,.9,.3,1.3)}
+@keyframes popIn{from{opacity:0;transform:translateY(16px) scale(.97)}to{opacity:1;transform:none}}
+.stmt small{display:block;font-size:13px;font-weight:700;color:var(--muted);letter-spacing:.06em;margin-bottom:10px}
+.stmt blockquote{margin:0;font-family:var(--font-fun);font-size:clamp(21px,2.2vw,26px);line-height:1.45}
+.choices{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:18px}
+.choice{border:2px solid var(--ink);background:#fff;border-radius:16px;padding:12px 8px;font-family:var(--font-fun);font-size:17px;line-height:1.3;transition:transform .15s,background .15s}
+.choice span{display:block;font-size:22px;margin-bottom:2px}
+.choice:hover{transform:translateY(-3px);background:var(--paper)}
+.choice.c-agree span{color:var(--green)}.choice.c-unsure span{color:var(--orange)}.choice.c-differ span{color:var(--pink)}
+.result-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.rcol{background:var(--paper);border-radius:18px;padding:14px;min-height:150px}
+.rcol h4{margin:0 0 10px;font-family:var(--font-fun);font-weight:400;font-size:17px;text-align:center}
+.chip{display:block;font-size:14px;font-weight:700;padding:8px 10px;border-radius:12px;margin-bottom:8px;background:color-mix(in srgb,var(--c) 22%,#fff);border-left:6px solid var(--c);animation:popIn .4s both}
+.result-msg{margin:18px 0 0;padding:16px 18px;background:#fffbe0;border-radius:16px;font-size:15.5px;color:var(--ink-soft)}
+.result-actions{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+
+/* ---------- 놀이 방법 ---------- */
+.games{overflow:hidden}
+.tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:26px}
+.tab{position:relative;text-align:left;padding:16px 18px 16px 70px;border-radius:20px;border:2px solid rgba(255,255,255,.2);background:rgba(255,255,255,.06);color:#fff;transition:background .2s,transform .2s,border-color .2s;min-height:84px}
+.tab:hover{background:rgba(255,255,255,.12)}
+.tab[aria-selected="true"]{background:#fff;color:var(--ink);border-color:#fff;transform:translateY(-4px);box-shadow:0 10px 0 var(--gc)}
+.tab .tn{position:absolute;left:16px;top:50%;transform:translateY(-50%);width:42px;height:42px;border-radius:14px;background:var(--gc);color:var(--ink);display:grid;place-items:center;font-family:var(--font-logo);font-size:22px}
+.tab b{display:block;font-family:var(--font-fun);font-weight:400;font-size:18px;line-height:1.3}
+.tab small{font-size:13px;opacity:.75}
+.panel{background:#fff;color:var(--ink);border-radius:32px;padding:42px;display:grid;grid-template-columns:1.2fr 1fr;gap:40px;box-shadow:0 30px 60px -30px rgba(0,0,0,.6)}
+.panel[hidden]{display:none}
+.panel-title{font-size:clamp(28px,3vw,38px);margin:0 0 6px}
+.panel-sub{color:var(--ink-soft);margin:0 0 18px}
+.pchips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px}
+.pchips span{font-size:14px;font-weight:700;padding:6px 12px;border-radius:999px;background:var(--paper)}
+.pchips span:first-child{background:var(--gc);color:var(--ink)}
+.steps{list-style:none;margin:0;padding:0;counter-reset:s}
+.steps li{position:relative;padding:12px 0 12px 56px;border-bottom:1px dashed var(--line);counter-increment:s}
+.steps li:last-child{border-bottom:0}
+.steps li::before{content:counter(s);position:absolute;left:0;top:10px;width:38px;height:38px;border-radius:12px;background:var(--gc);display:grid;place-items:center;font-family:var(--font-logo);font-size:19px;color:var(--ink)}
+.steps li.win::before{content:"★";background:var(--ink);color:var(--yellow)}
+.side{display:flex;flex-direction:column;gap:16px}
+.tip{background:var(--paper);border-radius:22px;padding:20px 22px;position:relative}
+.tip h4{margin:0 0 8px;font-family:var(--font-fun);font-weight:400;font-size:19px;display:flex;align-items:center;gap:8px}
+.tip h4 img{width:30px}
+.tip p,.tip li{font-size:15px;color:var(--ink-soft);margin:0}
+.tip ul{margin:0;padding-left:18px}
+.tip li+li{margin-top:4px}
+.say{display:flex;flex-direction:column;gap:8px;margin-top:4px}
+.say span{align-self:flex-start;background:#fff;border:2px solid var(--line);border-radius:16px 16px 16px 4px;padding:8px 14px;font-size:14.5px}
+.say span:nth-child(even){align-self:flex-end;border-radius:16px 16px 4px 16px;background:color-mix(in srgb,var(--gc) 22%,#fff)}
+.sort3{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;text-align:center;margin-top:6px}
+.sort3 div{background:#fff;border-radius:12px;padding:10px 4px;font-size:13.5px;font-weight:700}
+.sort3 b{display:block;font-size:20px}
+
+/* 퀴즈 맛보기 */
+.quiz{margin-top:90px;background:linear-gradient(135deg,#fff 0%,#fff 60%,#fff9d6 100%);color:var(--ink);border-radius:34px;padding:40px;position:relative;box-shadow:0 30px 60px -30px rgba(0,0,0,.6)}
+.quiz-badge{position:absolute;top:-20px;left:40px;background:var(--yellow);color:var(--ink);font-family:var(--font-fun);font-size:18px;padding:7px 18px;border-radius:999px;box-shadow:0 4px 0 #c9a500}
+.quiz-head{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;flex-wrap:wrap;margin-bottom:24px}
+.quiz-head h3{margin:0}
+.quiz-head p{margin:4px 0 0;color:var(--ink-soft);font-size:15px}
+.score{display:flex;gap:10px}
+.score div{background:var(--paper);border-radius:16px;padding:8px 16px;text-align:center;min-width:94px}
+.score b{display:block;font-family:var(--font-logo);font-weight:400;font-size:28px;line-height:1.1}
+.score small{font-size:12.5px;color:var(--muted);font-weight:700}
+.quiz-body{display:grid;grid-template-columns:.9fr 1.3fr;gap:34px;align-items:start}
+.host{display:flex;gap:12px;align-items:flex-start}
+.host img{width:70px;flex:none}
+.hints{flex:1;display:flex;flex-direction:column;gap:10px}
+.hint{background:var(--paper);border-radius:18px 18px 18px 4px;padding:12px 16px;font-size:16px;animation:popIn .4s both}
+.hint b{font-family:var(--font-fun);font-weight:400;color:var(--blue);margin-right:6px}
+.more-hint{align-self:flex-start;margin-top:4px;border:2px dashed var(--ink);background:none;border-radius:12px;padding:8px 14px;font-weight:700;font-size:14px}
+.more-hint:disabled{opacity:.4;cursor:default}
+.options{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.opt{border:0;background:none;padding:0;text-align:center;border-radius:14px;position:relative}
+.opt .sci-img{box-shadow:0 10px 20px -10px rgba(0,0,0,.45)}
+.opt:hover:not(:disabled) .sci-img{transform:translateY(-8px)}
+.opt span.nm{display:block;margin-top:8px;font-family:var(--font-fun);font-size:17px}
+.opt.right .sci-img{box-shadow:0 0 0 5px var(--green),0 14px 24px -10px rgba(0,0,0,.4)}
+.opt.wrong .sci-img{box-shadow:0 0 0 5px var(--pink);animation:shake .4s}
+.opt.dim{opacity:.45}
+.opt .mark{position:absolute;top:-12px;right:-8px;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;font-size:24px;font-weight:900;color:#fff;z-index:2;animation:popIn .3s both}
+.opt.right .mark{background:var(--green)}.opt.wrong .mark{background:var(--pink)}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
+.quiz-foot{display:flex;justify-content:space-between;align-items:center;gap:14px;margin-top:22px;flex-wrap:wrap}
+.quiz-msg{font-family:var(--font-fun);font-size:20px;min-height:30px}
+.opt:disabled{cursor:default}
+
+/* ---------- 수업 가이드 ---------- */
+.guide{background:var(--paper)}
+.g-block{background:#fff;border-radius:30px;padding:38px;box-shadow:var(--shadow);margin-bottom:26px}
+.g-head{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;margin-bottom:22px}
+.g-head h3{margin:0}
+.g-head p{margin:0;color:var(--muted);font-size:15px}
+.timebar{display:flex;gap:6px;border-radius:18px;overflow:hidden}
+.seg{flex:var(--m);background:var(--c);padding:16px 14px;min-height:150px;display:flex;flex-direction:column;position:relative;color:var(--ink)}
+.seg .min{font-family:var(--font-logo);font-size:30px;line-height:1}
+.seg .min small{font-family:var(--font-body);font-size:13px;font-weight:700;margin-left:2px}
+.seg .st{font-size:12px;font-weight:800;letter-spacing:.06em;margin:8px 0 2px;opacity:.75}
+.seg p{margin:0;font-size:14.5px;font-weight:600;line-height:1.45}
+.time-scale{display:flex;justify-content:space-between;font-size:12px;color:var(--muted);margin-top:8px;font-weight:700}
+.g-two{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-bottom:26px}
+.g-two .g-block{margin:0}
+.promises{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.promises li{display:flex;gap:12px;align-items:center;padding:14px 16px;border-radius:16px;background:var(--paper);font-weight:600}
+.promises li i{flex:none;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;font-style:normal;color:#fff;font-weight:800;background:var(--c)}
+.promise-quote{margin:0 0 16px;padding:14px 18px;border-left:5px solid var(--yellow);background:#fffbe3;border-radius:0 14px 14px 0;font-size:15.5px;color:var(--ink-soft)}
+.ments{display:grid;gap:12px}
+.ment{display:grid;grid-template-columns:92px 1fr;gap:12px;align-items:start}
+.ment b{font-family:var(--font-fun);font-weight:400;font-size:16px;background:var(--ink);color:#fff;border-radius:12px;padding:8px 6px;text-align:center}
+.ment p{margin:0;background:var(--paper);border-radius:4px 16px 16px 16px;padding:10px 14px;font-size:15px;color:var(--ink-soft)}
+.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;counter-reset:f}
+.flow div{position:relative;background:var(--paper);border-radius:20px;padding:20px 18px;counter-increment:f}
+.flow div::before{content:counter(f) "단계";display:inline-block;font-size:12px;font-weight:800;letter-spacing:.06em;background:var(--c);padding:3px 10px;border-radius:999px;margin-bottom:8px}
+.flow div:not(:last-child)::after{content:"";position:absolute;right:-13px;top:50%;width:10px;height:10px;border-top:3px solid var(--ink);border-right:3px solid var(--ink);transform:translateY(-50%) rotate(45deg);z-index:1}
+.flow b{display:block;font-family:var(--font-fun);font-weight:400;font-size:21px}
+.flow p{margin:4px 0 0;font-size:14.5px;color:var(--ink-soft)}
+.where{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+.where span{padding:10px 16px;border-radius:14px;background:var(--paper);font-weight:700;font-size:15px}
+.where span:first-child{background:var(--ink);color:var(--yellow)}
+.people{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.people div{background:var(--paper);border-radius:16px;padding:16px;text-align:center}
+.people b{display:block;font-family:var(--font-logo);font-weight:400;font-size:26px;color:var(--blue)}
+.people span{font-size:14px;font-weight:600;color:var(--ink-soft)}
+.prep{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px}
+.prep h4{margin:0 0 6px;font-family:var(--font-fun);font-weight:400;font-size:17px}
+.prep ul{margin:0;padding:0;list-style:none;font-size:14.5px;color:var(--ink-soft)}
+.prep li::before{content:"✔ ";color:var(--green);font-weight:800}
+.prep .opt-list li::before{content:"◎ ";color:var(--orange)}
+
+/* ---------- 심화: 과학의 본성 ---------- */
+.deep{overflow:hidden}
+.etym{display:grid;grid-template-columns:1fr 1.1fr;gap:40px;align-items:center;margin-bottom:80px}
+.etym-word{font-family:var(--font-logo);font-size:clamp(54px,7vw,92px);line-height:1;color:var(--yellow);margin:0}
+.etym-word small{display:block;font-family:var(--font-body);font-size:16px;color:rgba(255,255,255,.7);letter-spacing:.1em;margin-top:10px}
+.etym-steps{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:22px;font-size:15px}
+.etym-steps span{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);padding:8px 14px;border-radius:12px}
+.etym-steps i{font-style:normal;color:var(--yellow);font-weight:800}
+.lens{display:grid;gap:12px}
+.lens div{display:grid;grid-template-columns:120px 1fr;gap:14px;align-items:center;background:rgba(255,255,255,.07);border-radius:18px;padding:14px 18px;border:1px solid rgba(255,255,255,.12)}
+.lens b{font-family:var(--font-fun);font-weight:400;font-size:19px;color:var(--c)}
+.lens span{font-size:15.5px;color:rgba(255,255,255,.85)}
+.lens-cite{font-size:12.5px;color:rgba(255,255,255,.5);margin-top:6px}
+.equation{display:grid;grid-template-columns:1fr auto 1fr auto 1fr auto 1fr;align-items:stretch;gap:12px;margin:10px 0 24px}
+.eq-box{background:#fff;color:var(--ink);border-radius:22px;padding:20px 18px;border-top:8px solid var(--c)}
+.eq-box b{display:block;font-family:var(--font-fun);font-weight:400;font-size:22px}
+.eq-box small{display:block;font-size:12px;letter-spacing:.1em;font-weight:800;color:var(--muted)}
+.eq-box p{margin:6px 0 0;font-size:14.5px;color:var(--ink-soft)}
+.eq-op{display:grid;place-items:center;font-family:var(--font-logo);font-size:34px;color:var(--yellow)}
+.eq-result{background:var(--yellow);border-top-color:var(--ink)}
+.quote{margin:0;padding:26px 30px;border-radius:24px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);position:relative}
+.quote::before{content:"“";position:absolute;top:-24px;left:20px;font-family:Georgia,serif;font-size:90px;color:var(--yellow);line-height:1}
+.quote p{margin:0;font-family:var(--font-fun);font-size:clamp(19px,2vw,23px);line-height:1.5}
+.quote cite{display:block;margin-top:10px;font-style:normal;font-size:14px;color:rgba(255,255,255,.65)}
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin:80px 0}
+.why{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:26px;padding:28px}
+.why ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.why li{display:flex;gap:12px;align-items:flex-start;font-size:16px;color:rgba(255,255,255,.88)}
+.why li::before{content:"";flex:none;width:10px;height:10px;margin-top:9px;border-radius:3px;background:var(--c);transform:rotate(45deg)}
+.feat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.feat{background:#fff;color:var(--ink);border-radius:22px;padding:22px 20px;position:relative;transition:transform .25s}
+.feat:hover{transform:translateY(-6px) rotate(-.6deg)}
+.feat .ico{width:48px;height:48px;border-radius:14px;background:color-mix(in srgb,var(--c) 22%,#fff);display:grid;place-items:center;margin-bottom:12px}
+.feat .ico svg{width:28px;height:28px;stroke:color-mix(in srgb,var(--c) 75%,#13284a);fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.feat b{display:block;font-family:var(--font-fun);font-weight:400;font-size:21px;line-height:1.3}
+.feat p{margin:6px 0 0;font-size:14.5px;color:var(--ink-soft)}
+.feat.wide{grid-column:span 1;background:var(--yellow)}
+.feat.wide p{color:var(--ink)}
+.think-row{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:80px}
+.puzzle{background:#fff;color:var(--ink);border-radius:28px;padding:30px;position:relative}
+.puzzle .tag{display:inline-block;font-size:13px;font-weight:800;letter-spacing:.06em;background:var(--pink);color:#fff;padding:4px 12px;border-radius:999px;margin-bottom:10px}
+.puzzle blockquote{margin:0 0 16px;font-family:var(--font-fun);font-size:19px;line-height:1.55;background:var(--paper);border-radius:18px;padding:16px 18px}
+.puzzle .answer{margin-top:14px;padding:14px 16px;border-radius:16px;background:#eafaf0;border-left:5px solid var(--green);font-size:15.5px;color:var(--ink-soft);animation:popIn .4s both}
+.puzzle .answer[hidden]{display:none}
+.final-quote{margin:90px auto 0;max-width:900px;text-align:center}
+.final-quote p{font-family:var(--font-fun);font-size:clamp(24px,3vw,36px);line-height:1.45;margin:0}
+.final-quote p em{font-style:normal;color:var(--yellow)}
+
+/* ---------- 제품 정보 ---------- */
+.info{background:var(--paper)}
+.info-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:26px}
+.author{background:var(--ink);color:#fff;border-radius:30px;padding:36px;position:relative;overflow:hidden}
+.author::after{content:"";position:absolute;right:-60px;top:-60px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(255,231,56,.25),transparent 65%)}
+.author .role{font-size:13px;font-weight:800;letter-spacing:.12em;color:var(--sky)}
+.author h3{font-size:34px;margin:6px 0 2px}
+.author h3 small{font-family:var(--font-body);font-size:16px;color:rgba(255,255,255,.7);margin-left:6px}
+.author p{margin:0 0 18px;color:rgba(255,255,255,.82)}
+.credits{display:grid;grid-template-columns:auto 1fr;gap:8px 18px;margin:0;font-size:15px}
+.credits dt{color:rgba(255,255,255,.6);font-weight:600}
+.credits dd{margin:0;font-weight:700}
+.spec{background:#fff;border-radius:30px;padding:30px 34px;box-shadow:var(--shadow)}
+.spec table{width:100%;border-collapse:collapse;font-size:15.5px}
+.spec th{text-align:left;font-weight:600;color:var(--muted);padding:11px 0;width:34%;border-bottom:1px solid var(--line);vertical-align:top}
+.spec td{padding:11px 0;border-bottom:1px solid var(--line);font-weight:600}
+.spec tr:last-child th,.spec tr:last-child td{border-bottom:0}
+.buy-title{margin:56px 0 14px}
+.contact{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.contact > a,.contact > div{display:block;text-decoration:none;background:#fff;border-radius:22px;padding:22px;border:2px solid var(--line);transition:transform .2s,border-color .2s}
+.contact > a:hover{transform:translateY(-4px);border-color:var(--ink)}
+.buy-links{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.buy-links a{display:inline-block;padding:8px 14px;border-radius:12px;background:var(--ink);color:#fff;text-decoration:none;font-weight:700;font-size:14px}
+.buy-links a:hover{background:var(--blue)}
+.contact .buy-free{background:var(--yellow);border-color:var(--ink);box-shadow:0 6px 0 var(--ink)}
+.contact .buy-free span{color:var(--ink)}
+.contact .buy-free .more{margin-top:10px;font-weight:800}
+.buy-note{margin:18px 0 0;font-size:14px;color:var(--muted)}
+
+/* ---------- 교사 무료 신청 ---------- */
+[hidden]{display:none!important}
+.free{background:var(--sky-wash)}
+.free-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:44px;align-items:start}
+.free-lead{font-size:clamp(18px,1.8vw,21px);margin:0 0 24px;max-width:34em}
+.free-facts{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:0 0 28px}
+.free-facts div{background:#fff;border-radius:18px;padding:14px 16px;border:2px solid var(--line)}
+.free-facts dt{font-size:12.5px;font-weight:800;letter-spacing:.08em;color:var(--muted)}
+.free-facts dd{margin:2px 0 0;font-family:var(--font-fun);font-size:20px;line-height:1.3}
+.free-facts dd.hl{color:#d9771a}
+.free-steps{list-style:none;margin:0;padding:0;display:grid;gap:14px;counter-reset:fs}
+.free-steps li{counter-increment:fs;position:relative;padding:2px 0 2px 52px;font-size:15px;color:var(--ink-soft)}
+.free-steps li::before{content:counter(fs);position:absolute;left:0;top:2px;width:38px;height:38px;border-radius:12px;background:var(--yellow);display:grid;place-items:center;font-family:var(--font-logo);font-size:19px;color:var(--ink)}
+.free-steps b{display:block;font-family:var(--font-fun);font-weight:400;font-size:19px;color:var(--ink)}
+.free-card{background:#fff;border:3px solid var(--ink);border-radius:30px;padding:32px;box-shadow:0 10px 0 var(--ink);min-width:0}
+.free-card h3{margin:0 0 4px}
+.form-hint{margin:0 0 6px;font-size:14.5px;color:var(--muted)}
+.free-card label{display:block;font-weight:700;font-size:14.5px;margin:16px 0 6px}
+.free-card input[type="text"],.free-card input[type="email"],.free-card input[type="tel"],.free-card textarea{width:100%;border:2px solid var(--line);border-radius:14px;padding:12px 14px;font:inherit;font-size:16px;color:var(--ink);background:var(--paper);transition:border-color .2s,box-shadow .2s;resize:vertical}
+.free-card input:focus,.free-card textarea:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 4px rgba(47,159,224,.2);background:#fff}
+.free-card [aria-invalid="true"]{border-color:#e05a6f;background:#fff4f5}
+.free-card .agree{display:flex;gap:10px;align-items:flex-start;font-weight:700;margin-top:20px;cursor:pointer}
+.agree input{flex:none;width:20px;height:20px;margin:3px 0 0;accent-color:var(--ink)}
+.agree small{display:block;font-weight:500;color:var(--muted);font-size:12.5px;margin-top:3px;line-height:1.5}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.form-error{margin:14px 0 0;color:#c2334a;font-weight:700;font-size:14.5px}
+#freeSubmit{width:100%;justify-content:center;margin-top:20px}
+#freeSubmit:disabled{opacity:.6;cursor:wait;transform:none}
+.form-result{text-align:center;padding:10px 0}
+.form-result img{width:76px;margin:0 auto 8px}
+.form-result b{display:block;font-family:var(--font-fun);font-weight:400;font-size:28px;margin-bottom:6px}
+.form-result p{margin:0 0 16px;color:var(--ink-soft)}
+.form-result textarea{width:100%;text-align:left;border:2px dashed rgba(19,40,74,.25);border-radius:14px;padding:12px 14px;font:inherit;font-size:14.5px;background:var(--paper);color:var(--ink);resize:vertical}
+.form-result .result-actions{justify-content:center}
+.btn-ghost-ink{background:#fff;color:var(--ink);box-shadow:inset 0 0 0 2px var(--ink)}
+.btn-ghost-ink:hover{background:var(--paper)}
+.author-pos{display:inline-block;margin:0 0 12px!important;padding:6px 14px;border-radius:999px;background:var(--yellow);color:var(--ink)!important;font-weight:800;font-size:15px}
+.contact small{display:block;font-size:12.5px;font-weight:800;letter-spacing:.08em;color:var(--muted)}
+.contact b{display:block;font-family:var(--font-fun);font-weight:400;font-size:22px;margin:4px 0 2px}
+.contact span{display:block;font-size:14px;color:var(--ink-soft)}
+.contact .sel{user-select:all;-webkit-user-select:all;font-weight:700;color:var(--ink)}
+.copy-btn{margin-top:10px;border:2px solid var(--ink);background:#fff;border-radius:10px;padding:5px 12px;font-size:13px;font-weight:700}
+.copy-btn:hover{background:var(--ink);color:#fff}
+
+/* ---------- 마무리 & 푸터 ---------- */
+.closing{padding:120px 0 130px;overflow:hidden;text-align:center}
+.closing .rocket{position:absolute;width:250px;left:-260px;top:40px;animation:flyBy 14s linear infinite;filter:drop-shadow(0 18px 18px rgba(0,0,0,.4))}
+@keyframes flyBy{0%{transform:translate(0,40px) rotate(-8deg)}50%{transform:translate(calc(50vw + 130px),-10px) rotate(-4deg)}100%{transform:translate(calc(100vw + 520px),30px) rotate(-8deg)}}
+.closing h2{font-family:var(--font-fun);font-weight:400;font-size:clamp(30px,4.2vw,52px);line-height:1.3;margin:0 auto 18px;max-width:900px;position:relative}
+.closing h2 em{font-style:normal;color:var(--yellow)}
+.closing p{color:rgba(255,255,255,.78);margin:0 0 34px;position:relative}
+.closing .cta-row{justify-content:center;position:relative}
+.closing .pup-row{display:flex;justify-content:center;gap:6px;margin-bottom:22px;position:relative}
+.closing .pup-row img{width:56px;animation:hop 1.6s ease-in-out infinite}
+.closing .pup-row img:nth-child(2){animation-delay:.2s;transform:scaleX(-1)}
+@keyframes hop{0%,100%{translate:0 0}40%{translate:0 -12px}}
+footer{background:var(--deep);color:rgba(255,255,255,.65);padding:44px 0 110px;font-size:14px}
+.foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center}
+.foot .brand-word{font-size:22px}
+.foot p{margin:4px 0 0}
+.to-top{position:fixed;right:calc(20px + env(safe-area-inset-right,0px));bottom:calc(20px + env(safe-area-inset-bottom,0px));z-index:40;width:92px;height:92px;border:0;background:none;padding:0;opacity:0;pointer-events:none;transform:translateY(20px);transition:opacity .3s,transform .3s}
+.to-top.show{opacity:1;pointer-events:auto;transform:none}
+.to-top img{width:100%;filter:drop-shadow(0 8px 10px rgba(0,0,0,.4));transform:rotate(-30deg);transition:transform .3s}
+.to-top:hover img{transform:rotate(-38deg) scale(1.06)}
+.to-top span{position:absolute;bottom:-4px;left:50%;transform:translateX(-50%);background:var(--ink);color:#fff;font-size:11px;font-weight:700;padding:2px 8px;border-radius:999px;white-space:nowrap}
+.to-top.launch img{animation:launch .8s ease-in forwards}
+@keyframes launch{to{transform:translate(40px,-110vh) rotate(-30deg)}}
+
+/* ---------- 반응형 ---------- */
+@media (max-width:1080px){
+  .nav-links a{padding:8px 9px;font-size:14px}
+  .sci-grid{grid-template-columns:repeat(4,1fr)}
+  .feat-grid{grid-template-columns:repeat(2,1fr)}
+  .tabs{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:920px){
+  .nav-toggle{display:block}
+  .nav-links{position:fixed;top:calc(68px + env(safe-area-inset-top,0px));left:calc(12px + env(safe-area-inset-left,0px));right:calc(12px + env(safe-area-inset-right,0px));flex-direction:column;align-items:stretch;background:rgba(13,26,47,.97);border-radius:20px;padding:12px;gap:2px;box-shadow:0 20px 40px rgba(0,0,0,.4);opacity:0;pointer-events:none;transform:translateY(-10px);transition:opacity .2s,transform .2s}
+  .nav.open .nav-links{opacity:1;pointer-events:auto;transform:none}
+  .nav-links a{padding:12px 16px;font-size:16px}
+  .nav-links .nav-cta{margin:6px 0 0;text-align:center}
+  .hero{padding:100px 0 80px}
+  .hero-grid{grid-template-columns:1fr;text-align:center}
+  .hero-copy{order:2}
+  .hero-art{order:1;width:min(400px,80%);margin:0 auto -20px}
+  .badge-row,.cta-row,.hero-facts{justify-content:center}
+  .title{justify-content:center}
+  .think{left:0;top:-4%;font-size:15px;max-width:190px}
+  .violet,.scroll-cue{display:none}
+  .earth{width:220px;height:220px;right:-60px;bottom:-170px;opacity:.85}
+  .moon{left:auto;right:6%;top:9%;width:60px;height:60px}
+  .jupiter{width:96px;height:96px;top:30%;right:-46px}
+  .voices{grid-template-columns:1fr;gap:28px}
+  .about-grid{grid-template-columns:1fr;gap:40px}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .kit-notes{grid-template-columns:1fr}
+  .anatomy{grid-template-columns:1fr 1fr;justify-items:center}
+  .ana-list{grid-column:1/-1}
+  .persp-grid{grid-template-columns:repeat(2,1fr)}
+  .try{padding:34px 24px}
+  .try-grid{grid-template-columns:1fr;gap:20px}
+  .panel{grid-template-columns:1fr;padding:30px 24px}
+  .quiz{padding:34px 22px}
+  .quiz-body{grid-template-columns:1fr}
+  .g-two{grid-template-columns:1fr}
+  .flow{grid-template-columns:repeat(2,1fr)}
+  .flow div:nth-child(2)::after{display:none}
+  .etym{grid-template-columns:1fr}
+  .equation{grid-template-columns:1fr;gap:8px}
+  .eq-op{font-size:26px}
+  .why-grid,.think-row{grid-template-columns:1fr}
+  .info-grid{grid-template-columns:1fr}
+  .contact{grid-template-columns:1fr}
+  .free-grid{grid-template-columns:1fr;gap:30px}
+  .modal-inner{grid-template-columns:1fr;padding:26px 20px}
+  .modal-card{width:220px;margin:0 auto}
+  .timebar{flex-direction:column}
+  .seg{min-height:auto;flex-direction:row;align-items:center;gap:14px;flex:none}
+  .seg .st{margin:0}
+  .time-scale{display:none}
+}
+@media (max-width:600px){
+  body{font-size:16px}
+  .container{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+  .section{padding:84px 0}
+  .brand small{display:none}
+  .sci-grid{grid-template-columns:repeat(2,1fr);gap:18px}
+  .persp-grid{grid-template-columns:1fr}
+  .tabs{grid-template-columns:1fr 1fr;gap:8px}
+  .tab{padding:58px 12px 12px;min-height:0}
+  .tab .tn{top:12px;left:12px;transform:none;width:36px;height:36px;font-size:19px}
+  .tab b{font-size:16px}
+  .choices{grid-template-columns:1fr}
+  .result-cols{grid-template-columns:1fr}
+  .options{gap:10px}
+  .opt span.nm{font-size:14px}
+  .feat-grid{grid-template-columns:1fr}
+  .flow{grid-template-columns:1fr}
+  .flow div::after{display:none}
+  .people{grid-template-columns:1fr}
+  .prep{grid-template-columns:1fr}
+  .g-block{padding:26px 20px}
+  .ment{grid-template-columns:1fr}
+  .ment b{justify-self:start;padding:6px 12px}
+  .anatomy{gap:20px}
+  .ana-card{width:150px}
+  .balance-note{flex-direction:column;text-align:center;padding:24px 20px}
+  .lens div{grid-template-columns:1fr;gap:2px}
+  .timeline{padding:22px 16px 16px}
+  .tl-row .tl-name{font-size:12.5px}
+  .tl-bar em{display:none}
+  .stat span{font-size:17px}
+  .to-top{width:72px;height:72px;right:calc(12px + env(safe-area-inset-right,0px));bottom:calc(12px + env(safe-area-inset-bottom,0px))}
+  .closing .rocket{width:170px}
+  .free-card{padding:24px 18px}
+  .free-facts dd{font-size:17px}
+  .ribbon-track span{font-size:17px;padding:12px 18px}
+  .hero-facts li{font-size:13.5px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
+  html{scroll-behavior:auto}
+  .reveal{opacity:1;transform:none}
+  .closing .rocket{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- 내비게이션 -->
+<header class="nav" id="nav">
+  <div class="container nav-inner">
+    <a class="brand" href="#top" aria-label="과학의 본성 카드 홈">
+      <img src="assets/puppy.png" alt="">
+      <span><span class="brand-word"><span class="b1">과</span><span class="b2">본</span><span class="b3">카</span></span><small>과학의 본성 카드</small></span>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="메뉴 열기" aria-expanded="false" aria-controls="navLinks"><span></span><span></span><span></span></button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about">과본카란?</a></li>
+      <li><a href="#scientists">스타 과학자</a></li>
+      <li><a href="#perspectives">6가지 관점</a></li>
+      <li><a href="#games">놀이 방법</a></li>
+      <li><a href="#guide">수업 가이드</a></li>
+      <li><a href="#deep">과학의 본성</a></li>
+      <li><a href="#info">제품 정보</a></li>
+      <li><a class="nav-cta" href="#free">무료 신청</a></li>
+    </ul>
+  </div>
+</header>
+
+<main>
+<!-- 히어로 -->
+<section class="hero" id="top">
+  <div class="sky-deco" aria-hidden="true">
+    <div class="stars" id="stars"></div>
+    <div class="moon parallax" data-depth="10"></div>
+    <div class="planet violet parallax" data-depth="18"></div>
+    <div class="planet jupiter parallax" data-depth="6"></div>
+    <div class="planet earth parallax" data-depth="4"></div>
+    <div class="shooting"></div>
+  </div>
+  <div class="container hero-grid">
+    <div class="hero-copy">
+      <div class="badge-row">
+        <span class="age-badge" aria-label="8세 이상 카드 게임"><b>8+</b><small>CARD GAME</small></span>
+        <span class="eyebrow">Dr. Hyewon Jang · 세스물</span>
+      </div>
+      <p class="hero-kicker">카드로 배우는</p>
+      <h1 class="title" aria-label="과학의 본성 카드">
+        <span class="title-word" aria-hidden="true"><span class="ch c1">과</span><span class="ch c2">학</span><span class="ch c3">의</span><span class="ch c4">본</span><span class="ch c5">성</span></span><span class="title-sticker" aria-hidden="true">카드</span>
+      </h1>
+      <p class="hero-sub">스타 과학자와 함께 하는<br>알쏭달쏭 과학의 본성</p>
+      <p class="hero-yellow">뺏고 뺏기는 스릴 넘치는 과본카 놀이!<br>선생님을 위한 활동 안내서 포함!</p>
+      <div class="cta-row">
+        <a class="btn btn-yellow" href="#scientists">스타 과학자 만나기 →</a>
+        <a class="btn btn-ghost" href="#games">놀이 방법 보기</a>
+      </div>
+      <ul class="hero-facts">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="#ffe738" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="6" r="3"/><path d="M6 21v-4a6 6 0 0 1 12 0v4"/></svg>만 8세 이상</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="#56d2f5" stroke-width="2" stroke-linecap="round"><circle cx="8" cy="7" r="2.6"/><circle cx="16" cy="7" r="2.6"/><path d="M3 20v-3a5 5 0 0 1 10 0M11 20v-3a5 5 0 0 1 10 0"/></svg>2–16명</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="#f9a43f" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>15–30분</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="#f47f8c" stroke-width="2" stroke-linejoin="round"><rect x="3" y="5" width="11" height="15" rx="2" transform="rotate(-8 8 12)"/><rect x="10" y="4" width="11" height="15" rx="2" transform="rotate(8 15 11)"/></svg>카드 36장</li>
+      </ul>
+    </div>
+    <div class="hero-art">
+      <div class="orbit" aria-hidden="true"></div>
+      <div class="hero-glow" aria-hidden="true"></div>
+      <img class="einstein parallax" data-depth="-14" src="assets/einstein-flying.png" alt="과본카 카드를 타고 밤하늘을 나는 아인슈타인과 강아지" width="588" height="560">
+      <div class="think" aria-hidden="true">빛의 속도로 달린다면<br>시간은 어떻게 될까?<small>— 아인슈타인의 사고실험</small></div>
+      <div class="woof" aria-hidden="true">멍! 같이 놀자!</div>
+    </div>
+  </div>
+  <a class="scroll-cue" href="#about"><i></i>스크롤</a>
+</section>
+
+<div class="ribbon-wrap" aria-hidden="true"><div class="ribbon">
+  <div class="ribbon-track">
+    <span>모든 시민을 위한 과학적 소양</span><span>2022 개정 교육과정 필수 '과학의 본성'</span><span>하버드 대학교 연구원이 설계</span><span>과학영재들이 선택한 게임</span><span>12명의 스타 과학자 · 36장의 카드</span><span>선생님을 위한 활동 안내서 포함</span>
+    <span>모든 시민을 위한 과학적 소양</span><span>2022 개정 교육과정 필수 '과학의 본성'</span><span>하버드 대학교 연구원이 설계</span><span>과학영재들이 선택한 게임</span><span>12명의 스타 과학자 · 36장의 카드</span><span>선생님을 위한 활동 안내서 포함</span>
+  </div>
+</div></div>
+
+<!-- 과본카란? -->
+<section class="section about" id="about">
+  <div class="container">
+    <div class="sec-head reveal"><img class="sec-pup" src="assets/puppy.png" alt=""><h2 class="bubble">과학의 본성 카드란?</h2></div>
+    <div class="voices">
+      <div class="voice reveal"><q>과학적 소양을 기르고 싶어요</q><span>모든 시민</span></div>
+      <div class="voice reveal"><q>아이가 과학을 좋아하면 좋겠어요</q><span>학부모</span></div>
+      <div class="voice reveal"><q>과학을 재미있게 가르치고 싶어요</q><span>선생님</span></div>
+    </div>
+    <div class="about-grid">
+      <div class="about-copy reveal">
+        <p class="big">세상에 단 하나뿐인<br><em>&lt;과학의 본성 카드&gt;</em>를 소개합니다</p>
+        <p><strong>과본카</strong>는 <strong>12명의 귀여운 과학자 캐릭터</strong>와 함께 <strong>네 가지 게임</strong>을 즐길 수 있는 카드예요. 8살 이상이면 누구나 할 수 있는 <strong>뺏고 뺏기는 카드 게임</strong>과 <strong>과학자 퀴즈 놀이</strong>! 청소년 이상이라면 “과학이란 무엇인가”에 대한 <strong>나의 관점, 친구의 관점</strong>을 살펴보는 철학적 게임도 가능합니다.</p>
+        <p>“과학이란 무엇인가?”, “과학은 어떤 특성을 갖고 있는가?”에 대해 <strong>여섯 가지 관점</strong>에 기반하여 12명의 스타 과학자들이 과학의 본성에 대한 다양한 견해를 들려줍니다. 과학의 본성은 철학, 역사, 문화, 사회학 같은 다양한 학문에 바탕을 둡니다.</p>
+        <p>선생님은 과본카로 <strong>게임과 토론 기반의 수업</strong>을 할 수 있어요. 과학에 대한 흥미와 사고력을 기르고, 다양한 관점을 받아들이며, 논리적으로 자신의 의견을 이야기하는 멋진 아이로 키워 주세요!</p>
+      </div>
+      <div class="fan-wrap reveal">
+        <img src="assets/cards-fan.jpg" alt="부채꼴로 펼쳐 놓은 과학의 본성 카드 36장" loading="lazy">
+        <div class="fan-sticker">36장 모두 일러스트 카드!</div>
+      </div>
+    </div>
+    <div class="stats">
+      <div class="stat reveal" style="--c:var(--orange)"><b data-count="12">12</b><span>명의 스타 과학자</span><small>갈릴레오부터 벨 버넬까지</small></div>
+      <div class="stat reveal" style="--c:var(--green)"><b data-count="6">6</b><span>가지 관점</span><small>과학을 바라보는 다양한 시선</small></div>
+      <div class="stat reveal" style="--c:var(--blue)"><b data-count="36">36</b><span>장의 카드</span><small>과학자마다 세 가지 견해</small></div>
+      <div class="stat reveal" style="--c:var(--pink)"><b data-count="4">4</b><span>가지 놀이</span><small>게임부터 토론 활동까지</small></div>
+    </div>
+
+    <!-- 구성품 -->
+    <div class="kit">
+      <div class="sec-head reveal"><img class="sec-pup" src="assets/puppy.png" alt=""><h2 class="bubble">상자를 열면?</h2></div>
+      <div class="kit-photo reveal">
+        <img src="assets/kit.jpg" alt="과학의 본성 카드 구성품: 설명서, 케이스, 카드 36장" loading="lazy">
+        <span class="kit-tag" style="left:16%">설명서 1장</span>
+        <span class="kit-tag" style="left:46%">케이스</span>
+        <span class="kit-tag" style="left:80%">카드 36장</span>
+      </div>
+      <div class="kit-notes">
+        <div class="reveal"><b>설명서 1장</b><p>4가지 활동안과 6가지 관점이 간략히 정리되어 있어요.</p></div>
+        <div class="reveal"><b>케이스</b><p>카드와 설명서를 보관하는 상자. 손바닥만 한 125×73mm 크기예요.</p></div>
+        <div class="reveal"><b>카드 36장</b><p>과학자 12명의 일러스트가 그려진 카드. 과학자마다 세 장씩 들어 있어요.</p></div>
+      </div>
+
+      <div class="anatomy">
+        <div class="reveal">
+          <div class="ana-card"><img src="assets/cards/card01.jpg" alt="카드 앞면 예시: 1번 갈릴레오 갈릴레이" loading="lazy"></div>
+          <div class="ana-label">앞면</div>
+        </div>
+        <div class="reveal">
+          <div class="ana-card ana-back" id="anaBack" aria-label="카드 뒷면 구조 그림">
+            <div class="bk-top"><div class="bk-name">과학자 이름</div><i></i><i style="width:80%"></i><i style="width:90%"></i></div>
+            <div class="bk-bottom"><i style="width:70%"></i><i></i><i style="width:85%"></i></div>
+          </div>
+          <div class="ana-label">뒷면</div>
+        </div>
+        <ul class="ana-list reveal">
+          <li><span class="dot">앞</span><div><b>세계적인 과학자 12명의 귀여운 일러스트</b><p>누구 카드인지 확인하는 면이에요. 오른쪽 위에는 1~36번 카드 번호가 있어요.</p></div></li>
+          <li><span class="dot">뒤</span><div><b>상단: 과학자의 한글 이름과 소개</b><p>과학자의 생애와 업적을 알 수 있어 퀴즈 놀이의 힌트가 돼요.</p></div></li>
+          <li><span class="dot">뒤</span><div><b>하단: 과학의 본성에 대한 문장</b><p>관점별로 뒷면 색이 달라요. 색을 눌러 보세요!</p>
+            <div class="swatches" id="swatches" role="group" aria-label="관점별 뒷면 색"></div></div></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 스타 과학자 -->
+<section class="section scientists starry gradient" id="scientists">
+  <div class="container">
+    <div class="center">
+      <div class="sec-head center reveal"><img class="sec-pup" src="assets/puppy.png" alt=""><h2 class="bubble">12명의 스타 과학자</h2></div>
+      <p class="lead reveal">망원경을 든 갈릴레오부터 펄서를 발견한 벨 버넬까지! 카드를 눌러 과학자의 이야기와 카드 속 숨은 그림을 만나 보세요.</p>
+    </div>
+    <div class="sci-grid" id="sciGrid"></div>
+
+    <div class="timeline reveal" id="timeline" style="--labelw:150px">
+      <div class="tl-head"><h3>400년을 넘나드는 과학자들</h3><p>카드 번호는 과학자가 태어난 순서예요</p></div>
+      <div class="tl-axis" id="tlAxis"></div>
+      <div id="tlRows"></div>
+    </div>
+  </div>
+</section>
+
+<dialog class="sci-modal" id="sciModal" aria-labelledby="mName">
+  <div class="modal-inner">
+    <button class="modal-close" id="mClose" aria-label="닫기">×</button>
+    <div class="modal-card"><img id="mImg" alt=""></div>
+    <div>
+      <div class="modal-top"><span class="modal-no" id="mNo"></span><span class="modal-field" id="mField"></span></div>
+      <h3 class="modal-name" id="mName"></h3>
+      <p class="modal-en" id="mEn"></p>
+      <div class="modal-sec"><h4>어떤 과학자일까?</h4><p id="mWork"></p></div>
+      <div class="modal-sec"><h4>카드 속 이야기</h4><p id="mStory"></p></div>
+      <div class="modal-sec"><h4>이 캐릭터가 그려진 카드</h4><div class="modal-cards" id="mCards"></div></div>
+      <div class="modal-nav"><button id="mPrev">← 이전 과학자</button><button id="mNext">다음 과학자 →</button></div>
+    </div>
+  </div>
+</dialog>
+
+<!-- 6가지 관점 -->
+<section class="section perspectives" id="perspectives">
+  <div class="container">
+    <div class="center">
+      <div class="sec-head center reveal"><img class="sec-pup" src="assets/puppy.png" alt=""><h2 class="bubble">과학을 바라보는 6가지 관점</h2></div>
+      <p class="lead reveal">카드 뒷면의 문장은 현대를 살아가는 사람들이 과학에 대하여 갖는 다양한 견해를 나타낸 것으로, 여섯 가지 관점으로 나눌 수 있어요. 관점마다 카드 뒷면의 색이 달라요.</p>
+    </div>
+    <div class="persp-grid" id="perspGrid"></div>
+    <div class="balance-note reveal">
+      <img src="assets/einstein-rocket.png" alt="">
+      <div><b>정답은 하나가 아니에요</b><p>과본카를 통해 과학에 대한 다양한 관점을 이해하고, <strong>균형된 시각</strong>의 의미를 생각해 보세요. 과학은 간단한 문장으로 기술되기 어려운 복잡한 것이니까요.</p></div>
+    </div>
+
+    <div class="try reveal" id="try">
+      <span class="try-badge">미리 해보기 · 놀이 2</span>
+      <div class="try-grid">
+        <div class="try-intro">
+          <h3>나는 과학을 어떻게 바라볼까?</h3>
+          <p>여섯 가지 관점을 대표하는 문장을 하나씩 읽고, 내 생각과 가까운 칸을 골라 보세요. 실제 과본카에는 12명의 과학자가 들려주는 <strong>36가지 문장</strong>이 있어요.</p>
+          <div class="rule"><img src="assets/puppy.png" alt="" width="34"><span>정답 맞히기가 아니라, <strong>내 생각을 알아차리는 것</strong>이 핵심이에요!</span></div>
+        </div>
+        <div class="try-stage" id="tryStage" aria-live="polite"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 놀이 방법 -->
+<section class="section games starry gradient" id="games">
+  <div class="container">
+    <div class="center">
+      <div class="sec-head center reveal"><img class="sec-pup" src="assets/puppy.png" alt=""><h2 class="bubble">4가지 놀이 방법</h2></div>
+      <p class="lead reveal">뺏고 뺏기는 놀이! 과학자 퀴즈 놀이! 다양한 관점에 대한 이해는 덤!<br>이기고 지는 것보다 <strong style="color:#ffe738">생각 나누기</strong>가 더 중요해요.</p>
+    </div>
+    <div class="tabs reveal" role="tablist" id="gameTabs"></div>
+    <div id="gamePanels"></div>
+
+    <div class="quiz reveal" id="quiz">
+      <span class="quiz-badge">미리 해보기 · 놀이 4</span>
+      <div class="quiz-head">
+        <div><h3>이 과학자는 누구일까?</h3><p>힌트를 듣고 과학자 카드를 골라 보세요. 맞히면 카드는 내 것, 틀리면 문제를 낸 강아지의 것!</p></div>
+        <div class="score"><div><b id="scoreMe">0</b><small>내 카드</small></div><div><b id="scoreDog">0</b><small>강아지 카드</small></div></div>
+      </div>
+      <div class="quiz-body">
+        <div class="host">
+          <img src="assets/puppy.png" alt="퀴즈를 내는 강아지">
+          <div class="hints" id="hints" aria-live="polite"></div>
+        </div>
+        <div>
+          <div class="options" id="options"></div>
+        </div>
+      </div>
+      <div class="quiz-foot"><div class="quiz-msg" id="quizMsg" aria-live="polite"></div><button class="btn btn-ink" id="nextQ">다음 문제 →</button></div>
+    </div>
+  </div>
+</section>
+
+<!-- 수업 가이드 -->
+<section class="section guide" id="guide">
+  <div class="container">
+    <div class="sec-head reveal"><img class="sec-pup" src="assets/puppy.png" alt=""><h2 class="bubble">선생님을 위한 수업 가이드</h2></div>
+    <p class="lead reveal">과본카는 초등학교 과학영재, 중학교 과학, 고등학교 통합과학·과학탐구실험 수업에서 활용할 수 있어요. 20분이면 충분합니다.</p>
+
+    <div class="g-block reveal">
+      <div class="g-head"><h3>20분 수업 진행 순서</h3><p>1인당 카드 3장 기준</p></div>
+      <div class="timebar">
+        <div class="seg" style="--m:3;--c:#ffd29a"><div class="min">3<small>분</small></div><div><div class="st">1단계</div><p>카드 나눠주기<br>(1인당 3장씩)</p></div></div>
+        <div class="seg" style="--m:3;--c:#bfe6a8"><div class="min">3<small>분</small></div><div><div class="st">2단계</div><p>혼자 카드 읽고<br>마음에 드는 카드 1장 고르기</p></div></div>
+        <div class="seg" style="--m:5;--c:#b6e9f7"><div class="min">5<small>분</small></div><div><div class="st">3단계</div><p>짝 또는 모둠과 ‘왜 이 카드를 골랐는지’ 이야기하기</p></div></div>
+        <div class="seg" style="--m:5;--c:#d9c8ea"><div class="min">5<small>분</small></div><div><div class="st">4단계</div><p>모둠 카드 3~4장을 놓고 가장 중요한 것부터 순위 정하기</p></div></div>
+        <div class="seg" style="--m:4;--c:#fbc6cd"><div class="min">4<small>분</small></div><div><div class="st">5단계</div><p>각 모둠<br>1개씩 발표하기</p></div></div>
+      </div>
+      <div class="time-scale"><span>0분</span><span>5</span><span>10</span><span>15</span><span>20분</span></div>
+    </div>
+
+    <div class="g-two">
+      <div class="g-block reveal">
+        <div class="g-head"><h3>시작 전 약속</h3></div>
+        <p class="promise-quote">“이 게임은 정답만 찾는 게임이 아니에요. 서로의 생각을 듣고, 왜 그렇게 생각했는지 이야기하는 게임이에요.”</p>
+        <ul class="promises">
+          <li><i style="--c:var(--orange)">1</i>친구 말 끊지 않기</li>
+          <li><i style="--c:var(--green)">2</i>‘틀렸어’ 대신 ‘나는 다르게 생각해’라고 말하기</li>
+          <li><i style="--c:var(--blue)">3</i>카드 내용은 천천히 읽기</li>
+          <li><i style="--c:var(--pink)">4</i>이기고 지는 것보다 생각 나누기가 더 중요해요</li>
+        </ul>
+      </div>
+      <div class="g-block reveal">
+        <div class="g-head"><h3>교사용 진행 멘트</h3></div>
+        <div class="ments">
+          <div class="ment"><b>시작할 때</b><p>“오늘은 카드를 가지고 과학에 대해 생각을 나눠 볼 거예요. 정답만 찾는 시간이 아니라, 서로의 생각을 듣는 시간이기도 해요.”</p></div>
+          <div class="ment"><b>카드 읽을 때</b><p>“카드에 적힌 내용을 읽고, 나는 어떻게 생각하는지 골라 보세요.”</p></div>
+          <div class="ment"><b>토론할 때</b><p>“같은 생각이어도 좋고, 달라도 좋아요. 중요한 건 이유를 말하는 거예요.”</p></div>
+          <div class="ment"><b>마무리할 때</b><p>“오늘 해 보니, 과학을 보는 생각이 모두 똑같지 않을 수 있다는 걸 알 수 있었나요?”</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="g-block reveal">
+      <div class="g-head"><h3>너와 나의 생각 나누기 활동</h3><p>카드 교환 게임 순서에 따라 진행하는 수업용 통합 활동</p></div>
+      <div class="flow">
+        <div style="--c:#ffd29a"><b>카드 교환</b><p>각자 카드를 받고 마음에 드는 카드를 친구와 교환해요.</p></div>
+        <div style="--c:#bfe6a8"><b>그룹 형성</b><p>3~4명씩 모둠을 만들어 각자 카드 1~2장을 가운데 놓아요.</p></div>
+        <div style="--c:#b6e9f7"><b>순위 선정</b><p>모둠에서 가장 중요한 카드부터 차례로 순위를 정해요.</p></div>
+        <div style="--c:#fbc6cd"><b>공유 및 토의</b><p>왜 그렇게 순위를 정했는지 발표하고 다른 모둠과 비교해요.</p></div>
+      </div>
+    </div>
+
+    <div class="g-two">
+      <div class="g-block reveal">
+        <div class="g-head"><h3>인원 구성</h3></div>
+        <div class="people">
+          <div><b>2~4명</b><span>카드 게임하기 좋아요</span></div>
+          <div><b>4~6명</b><span>토론하기 좋아요</span></div>
+          <div><b>3~5명</b><span>모둠 활동 한 팀 추천</span></div>
+        </div>
+        <div class="prep">
+          <div><h4>필수 준비물</h4><ul><li>과학의 본성 카드 1세트</li><li>책상 또는 바닥 자리</li><li>친구 2명 이상</li></ul></div>
+          <div><h4>있으면 좋아요</h4><ul class="opt-list"><li>생각을 적을 종이와 연필</li><li>큰 종이(모둠 활동 시)</li><li>스티커 또는 마커</li></ul></div>
+        </div>
+      </div>
+      <div class="g-block reveal">
+        <div class="g-head"><h3>이런 수업에 딱!</h3></div>
+        <div class="where">
+          <span>2022 개정 교육과정 필수 ‘과학의 본성’</span>
+          <span>초등학교 과학영재</span><span>중학교 과학</span><span>고등학교 통합과학</span><span>과학탐구실험</span><span>가정에서 가족 놀이</span>
+        </div>
+        <p style="margin:18px 0 0;color:var(--ink-soft);font-size:15.5px">과학영재를 오랫동안 가르친 하버드 대학교 연구원, 대학 교수가 만들고 현직 교사들이 감수했어요. 카드 게임과 토론으로 과학에 대한 흥미와 사고력, 그리고 논리적으로 의견을 말하는 힘을 길러 줍니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 과학의 본성 심화 -->
+<section class="section deep starry gradient" id="deep">
+  <div class="container">
+    <div class="sec-head reveal"><img class="sec-pup" src="assets/puppy.png" alt=""><h2 class="bubble">더 깊이 알아보는 과학의 본성</h2></div>
+    <p class="lead reveal">과학의 본성(Nature of Science)은 “과학이란 무엇인가”에 대한 논의예요. 과본카 놀이를 마친 뒤, 이야기를 한 걸음 더 깊게 이어가 보세요.</p>
+
+    <div class="etym">
+      <div class="reveal">
+        <p class="etym-word">scientia<small>라틴어 · ‘지식’, ‘안다’</small></p>
+        <div class="etym-steps"><span>scient (안다)</span><i>+</i><span>-ia</span><i>→</i><span>science 과학</span></div>
+        <p style="color:rgba(255,255,255,.78);margin:18px 0 0">과학(science)이라는 말은 라틴어 스키엔티아(scientia)에서 왔어요. ‘과학적(scientific)’이라는 말은 여기에 ‘만들다’라는 뜻의 라틴어가 결합한 것이에요.</p>
+      </div>
+      <div class="reveal">
+        <h3>같은 과학, 다른 시선</h3>
+        <div class="lens">
+          <div style="--c:var(--orange)"><b>일반인</b><span>과학을 <strong>지식의 체계</strong>로 바라봐요.</span></div>
+          <div style="--c:var(--sky)"><b>과학자</b><span>과학을 <strong>탐구하는 방법</strong>으로 바라봐요.</span></div>
+          <div style="--c:var(--pink)"><b>철학자</b><span>과학을 <strong>사고하는 방법</strong>으로 바라봐요.</span></div>
+        </div>
+        <p class="lens-cite">Collette &amp; Chiappetta (1989)</p>
+      </div>
+    </div>
+
+    <h3 class="reveal">과학은 지식일까, 과정일까?</h3>
+    <div class="equation reveal">
+      <div class="eq-box" style="--c:var(--orange)"><small>PRODUCT</small><b>산물</b><p>과학적 사실, 원리, 법칙, 이론, 개념, 개념 체계</p></div>
+      <div class="eq-op">+</div>
+      <div class="eq-box" style="--c:var(--green)"><small>PROCESS</small><b>과정</b><p>탐구 절차, 사고 과정, 방법, 실험, 자료 수집과 분석</p></div>
+      <div class="eq-op">+</div>
+      <div class="eq-box" style="--c:var(--purple)"><small>ASSUMPTION</small><b>기본 가정</b><p>“모든 자연 현상에는 원인이 있고, 이를 합리적으로 설명할 방법이 있을 것이다”</p></div>
+      <div class="eq-op">=</div>
+      <div class="eq-box eq-result"><small>SCIENCE</small><b>과학</b><p>과학자, 과학 지식, 과학 사회가 서로 관계를 맺으며 이루어져요.</p></div>
+    </div>
+    <blockquote class="quote reveal"><p>돌로 집을 짓듯이 과학은 사실들로 이루어진다. 그러나 돌무더기가 집이 아니듯이, 사실의 집합 자체는 과학이 아니다.</p><cite>— 앙리 푸앵카레 (Henri Poincaré)</cite></blockquote>
+
+    <div class="why-grid">
+      <div class="why reveal" style="--c:var(--yellow)">
+        <h3>왜 알아야 할까?</h3>
+        <ul><li>과학과 비과학을 나눌 수 있어요.</li><li>지식의 발달과 세상의 변화를 예측하는 통찰력을 가져요.</li><li>과학이라는 학문의 속성을 더 잘 이해하게 돼요.</li></ul>
+      </div>
+      <div class="why reveal" style="--c:var(--mint)">
+        <h3>어디에 쓸까?</h3>
+        <ul><li>시민으로서 합리적인 의사결정을 할 수 있어요.</li><li>정보를 비판적으로 분석할 수 있어요.</li><li>과학이라는 학문을 더 잘 이해할 수 있어요.</li></ul>
+      </div>
+    </div>
+
+    <h3 class="reveal">과학적인 주장의 7가지 특징</h3>
+    <p class="lead reveal" style="margin-bottom:26px">과학은 세상을 이해하는 여러 방법 중 하나예요. 그렇다면 다른 방법들과 구별되는 과학의 특성은 무엇일까요?</p>
+    <div class="feat-grid" id="featGrid"></div>
+
+    <div class="think-row">
+      <div class="puzzle reveal">
+        <span class="tag">생각해 보기 ①</span>
+        <h3>나에게만 보이는 고양이</h3>
+        <blockquote>“내가 가끔씩 이상한 행동을 하는 건 나를 쫓는 고양이 때문이야. 그 고양이는 내가 어디를 가든 쫓아다니면서 이상한 행동을 하게 만들어. 그런데 그 고양이가 다른 사람들에게는 안 보여!”</blockquote>
+        <button class="btn btn-ink" data-reveal="ans1">이 주장은 과학적일까?</button>
+        <p class="answer" id="ans1" hidden>아무도 볼 수 없고 확인할 방법도 없는 고양이는 <strong>반증할 수 없어요.</strong> 과학적인 주장은 수집된 증거를 바탕으로 “그렇지 않다”는 것을 보여 줄 수 있어야 해요.</p>
+      </div>
+      <div class="puzzle reveal">
+        <span class="tag" style="background:var(--blue)">생각해 보기 ②</span>
+        <h3>보이는 것을 믿을 수 있을까?</h3>
+        <blockquote>모두에게 똑같이 보이지는 않아요. 사람은 자신의 경험을 바탕으로 정보를 골라 받아들이고 다시 조직해서 관찰 경험을 만들어요. 이것을 <strong>관찰의 이론 의존성</strong>이라고 해요.</blockquote>
+        <button class="btn btn-ink" data-reveal="ans2">그럼 관찰은 쓸모없을까?</button>
+        <p class="answer" id="ans2" hidden>그래도 관찰은 중요해요! 하이젠베르크는 “우리가 관찰하는 것은 자연 자체가 아니라 우리의 탐구 방법에 노출된 자연이다”라고 말했어요. 관찰의 한계를 알고, 재현하고, 서로 비판하며 과학은 더 단단해져요.</p>
+      </div>
+    </div>
+
+    <div class="final-quote reveal">
+      <p>과학 지식의 발전을 위해서는<br><em>대안적 이론에 대한 열린 마음</em>과<br><em>끊임없는 비판적 사고</em>가 필수적이에요.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 제품 정보 -->
+<section class="section info" id="info">
+  <div class="container">
+    <div class="sec-head reveal"><img class="sec-pup" src="assets/puppy.png" alt=""><h2 class="bubble">만든 사람들 &amp; 제품 정보</h2></div>
+    <div class="info-grid">
+      <div class="author reveal">
+        <span class="role">기획 및 지은이</span>
+        <h3>장혜원 박사<small>Dr. Hyewon Jang</small></h3>
+        <p class="author-pos">현 세종대학교 조교수</p>
+        <p>하버드 대학교 박사후연구원, 한국교원대학교 연구교수를 거쳤어요. 과학영재를 오랫동안 가르치며, 아이들이 과학을 즐겁게 탐구하고 서로의 관점을 나눌 수 있도록 과본카를 설계했어요.</p>
+        <dl class="credits">
+          <dt>감수</dt><dd>최미현, 김하나</dd>
+          <dt>그림 및 편집</dt><dd>김선영</dd>
+          <dt>제작</dt><dd>세스물</dd>
+        </dl>
+      </div>
+      <div class="spec reveal">
+        <table>
+          <tr><th>품명</th><td>학습용 카드 · 카드로 배우는 과학의 본성</td></tr>
+          <tr><th>구성</th><td>카드 36장, 설명서 1장, 케이스</td></tr>
+          <tr><th>크기</th><td>125 × 73 mm</td></tr>
+          <tr><th>사용 연령 · 인원</th><td>만 8세 이상 · 2~16명</td></tr>
+          <tr><th>놀이 시간</th><td>15~30분</td></tr>
+          <tr><th>발행</th><td>2018년 1월 · 세스물</td></tr>
+          <tr><th>ISBN</th><td>979-11-962668-0-6</td></tr>
+          <tr><th>정가</th><td>15,000원</td></tr>
+        </table>
+      </div>
+    </div>
+    <h3 class="buy-title reveal">구입 안내</h3>
+    <div class="contact">
+      <div class="reveal">
+        <small>소량 구입 · 1~9부</small><b>온라인 서점</b><span>교보문고와 알라딘에서 구입할 수 있어요.</span>
+        <div class="buy-links">
+          <a href="https://search.kyobobook.co.kr/search?keyword=%EA%B3%BC%ED%95%99%EC%9D%98%20%EB%B3%B8%EC%84%B1%20%EC%B9%B4%EB%93%9C" target="_blank" rel="noopener">교보문고 ↗</a>
+          <a href="https://www.aladin.co.kr/search/wsearchresult.aspx?SearchTarget=All&amp;SearchWord=%EA%B3%BC%ED%95%99%EC%9D%98+%EB%B3%B8%EC%84%B1+%EC%B9%B4%EB%93%9C" target="_blank" rel="noopener">알라딘 ↗</a>
+        </div>
+      </div>
+      <div class="reveal">
+        <small>대량 구입 · 10부 이상</small><b>이메일 문의</b><span class="sel" id="mailText">ssesmul@gmail.com</span><span>학교·기관 단체 구입은 이메일로 문의해 주세요.</span>
+        <button class="copy-btn" id="copyMail" type="button">이메일 복사</button>
+      </div>
+      <a class="reveal buy-free" href="#free"><small>선생님 무료 신청</small><b>1부 무료 · 착불</b><span>수업·연구용으로 쓰실 선생님께 1부를 보내드려요.</span><span class="more">신청양식 쓰러 가기 →</span></a>
+    </div>
+    <p class="buy-note reveal">홈페이지 noscard.kr · 네이버에서 [과본카]를 검색하면 더 많은 정보를 볼 수 있어요.</p>
+  </div>
+</section>
+
+<!-- 교사 무료 신청 -->
+<section class="section free" id="free">
+  <div class="container">
+    <div class="sec-head reveal"><img class="sec-pup" src="assets/puppy.png" alt=""><h2 class="bubble">선생님께 1부 무료로 보내드려요</h2></div>
+    <div class="free-grid">
+      <div class="free-info reveal">
+        <p class="free-lead">수업용·연구용으로 과본카를 쓰고 싶은 선생님께 <strong>1부를 무료로</strong> 보내드려요. 배송료만 부담해 주시면 <strong>학교 주소</strong>로 보내드립니다.</p>
+        <dl class="free-facts">
+          <div><dt>대상</dt><dd>수업·연구용으로 쓰실 선생님</dd></div>
+          <div><dt>수량</dt><dd>1부 무료</dd></div>
+          <div><dt>배송료</dt><dd class="hl">본인 부담 (착불)</dd></div>
+          <div><dt>배송지</dt><dd>학교 주소</dd></div>
+        </dl>
+        <ol class="free-steps">
+          <li><b>신청양식 작성</b>받는 사람과 학교 주소를 정확히 적어 주세요.</li>
+          <li><b>신청서 보내기</b>버튼을 누르면 세스물(ssesmul@gmail.com)로 신청서가 전달돼요.</li>
+          <li><b>학교로 착불 발송</b>배송료만 받고 학교로 보내드려요.</li>
+        </ol>
+      </div>
+      <div class="free-card reveal">
+        <form id="freeForm" novalidate>
+          <h3>무료 신청양식</h3>
+          <p class="form-hint">모든 칸을 채워 주세요. 학교 주소에는 학교 이름도 함께 적어 주세요.</p>
+          <label for="freeName">받는 사람</label>
+          <input id="freeName" type="text" autocomplete="name" required placeholder="예: 홍길동 선생님">
+          <label for="freeEmail">이메일</label>
+          <input id="freeEmail" type="email" autocomplete="email" required placeholder="example@school.kr">
+          <label for="freeAddr">학교 주소</label>
+          <textarea id="freeAddr" rows="2" autocomplete="street-address" required placeholder="학교 이름, 도로명 주소, 우편번호"></textarea>
+          <label for="freePhone">연락처</label>
+          <input id="freePhone" type="tel" inputmode="tel" autocomplete="tel" required placeholder="010-0000-0000">
+          <input id="freeHoney" type="text" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <label class="agree" for="freeAgree"><input id="freeAgree" type="checkbox" required><span>개인정보 수집·이용에 동의합니다.<small>수집 항목: 받는 사람, 이메일, 학교 주소, 연락처 · 목적: 교구 발송과 연락 · 발송이 끝나면 파기합니다.</small></span></label>
+          <p class="form-error" id="freeError" role="alert" hidden></p>
+          <button class="btn btn-ink" type="submit" id="freeSubmit">신청서 보내기</button>
+        </form>
+        <div class="form-result" id="freeDone" hidden>
+          <img src="assets/puppy.png" alt="">
+          <b>신청서를 보냈어요!</b>
+          <p id="freeDoneMsg"></p>
+          <button class="btn btn-yellow" type="button" id="freeAgain">새 신청서 쓰기</button>
+        </div>
+        <div class="form-result" id="freeFail" hidden>
+          <b>자동 발송이 되지 않았어요</b>
+          <p>아래 내용을 복사해 <span class="sel">ssesmul@gmail.com</span>으로 보내 주세요.</p>
+          <label for="freeCopyText" class="sr-only">신청 내용</label>
+          <textarea id="freeCopyText" rows="7" readonly></textarea>
+          <div class="result-actions">
+            <button class="btn btn-ink" type="button" id="freeCopy">신청 내용 복사</button>
+            <button class="btn btn-ghost-ink" type="button" id="freeRetry">다시 시도</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 마무리 -->
+<section class="closing starry gradient">
+  <img class="rocket" src="assets/einstein-rocket.png" alt="" aria-hidden="true">
+  <div class="container">
+    <div class="pup-row" aria-hidden="true"><img src="assets/puppy.png" alt=""><img src="assets/puppy.png" alt=""></div>
+    <h2>과학은 혼자 하는 것이 아니라,<br><em>함께 이야기하며</em> 더 잘 이해할 수 있는 것!</h2>
+    <p>정답보다 이유가 중요해요. 친구와 생각이 달라도 괜찮아요.</p>
+    <div class="cta-row">
+      <a class="btn btn-yellow" href="#games">오늘 놀이 시작하기</a>
+      <a class="btn btn-ghost" href="#free">선생님 무료 신청</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container foot">
+    <div>
+      <span class="brand-word"><span class="b1" style="color:var(--orange)">과</span><span style="color:var(--green)">본</span><span style="color:var(--sky)">카</span></span>
+      <p>과학의 본성 카드 · 기획 및 지은이 장혜원 · 제작 세스물</p>
+    </div>
+    <p>Copyright © Hyewon Jang. All Rights Reserved.</p>
+  </div>
+</footer>
+
+<button class="to-top" id="toTop" aria-label="맨 위로"><img src="assets/einstein-rocket.png" alt=""><span>맨 위로</span></button>
+
+<script>
+/* ===================== 데이터 ===================== */
+const PERSP = [
+  {name:'이론 강조', color:'var(--p1)', hex:'#ef8f6b', range:'1~6번', text:'과학은 대부분 합리적이고 이론 중심의 노력이다.'},
+  {name:'경험 강조', color:'var(--p2)', hex:'#8cc63f', range:'7~12번', text:'과학은 대부분 물리적 증거를 찾기 위한 데이터 수집 및 실험을 위한 노력이다.'},
+  {name:'반과학적 시각', color:'var(--p3)', hex:'#ec7a8c', range:'13~18번', text:'과학은 과대평가되었다. 과학의 목적, 방법, 결과에 대해 많은 신뢰를 할 필요는 없다.'},
+  {name:'과학주의', color:'var(--p4)', hex:'#dcb400', range:'19~24번', text:'과학은 지식을 얻는 방법으로 완벽하다.'},
+  {name:'문화적 시각', color:'var(--p5)', hex:'#3fc1c9', range:'25~30번', text:'과학은 사회적, 역사적, 심리적 맥락에 항상 영향을 받으며 고유의 맥락 안에서 이루어진다.'},
+  {name:'균형적 시각', color:'var(--p6)', hex:'#6e73c0', range:'31~36번', text:'과학은 간단한 문장으로 기술되기 어려운 복잡한 것이다. 따라서 극단적으로 한 가지 측면만을 강조해서는 안 된다.'}
+];
+
+const SCI = [
+  {ko:'갈릴레오 갈릴레이', en:'Galileo Galilei', b:1564, d:1642, field:'천문학 · 물리학', pc:'#ffe98a',
+   work:'망원경을 개량해 목성 주위를 도는 위성 4개를 발견했어요. 모든 천체가 지구를 중심으로 돈다는 천동설에 어긋나는 증거들을 찾아냈지요.',
+   story:'창밖의 망원경과 목성, 그리고 목성의 위성 4개를 저글링하고 있어요. 천주교인이었지만 실험과 수학적 증명으로 지동설의 증거를 제시했어요.',
+   hints:['모든 천체가 지구를 돈다는 천동설에 어긋나는 증거를 찾았어요.','망원경을 직접 개량해서 밤하늘을 관찰했어요.','카드 속에서 목성의 위성 4개를 저글링하고 있어요.']},
+  {ko:'르네 데카르트', en:'René Descartes', b:1596, d:1650, field:'수학 · 철학', pc:'#ffc4d0',
+   work:'좌표와 대수를 결합해 직교 좌표계를 만들었어요. 덕분에 도형을 식으로, 식을 그래프로 나타낼 수 있게 되었지요.',
+   story:'별무늬 잠옷 차림으로 파리채를 들고 있고, 뒤의 칠판에는 좌표계가 그려져 있어요. 잠자리에서 천장의 파리를 보다 좌표를 떠올렸다는 이야기가 전해져요.',
+   hints:['좌표와 대수를 결합해 직교 좌표계를 만들었어요.','천장 위 파리의 위치를 보다 좌표를 떠올렸다는 이야기가 있어요.','카드 속에서 별무늬 잠옷을 입고 파리채를 들고 있어요.']},
+  {ko:'아이작 뉴턴', en:'Isaac Newton', b:1643, d:1727, field:'물리학 · 수학', pc:'#b8efe0',
+   work:'질량이 있는 모든 물체는 서로 끌어당긴다는 만유인력 법칙과 뉴턴의 운동 법칙을 세웠어요.',
+   story:'달이 뜬 밤, 지구 위에 앉아 사과를 먹고 있어요. 지구가 사과를 잡아당기는 힘과 달을 잡아당기는 힘이 같은 힘, 바로 만유인력이에요.',
+   hints:['질량이 있는 모든 물체는 서로 끌어당긴다는 법칙을 세웠어요.','지구가 사과를 당기는 힘과 달을 당기는 힘이 같은 힘이라고 생각했어요.','카드 속에서 달을 바라보며 사과를 먹고 있어요.']},
+  {ko:'제임스 클러크 맥스웰', en:'James Clerk Maxwell', b:1831, d:1879, field:'물리학', pc:'#c9ecb4',
+   work:'따로 존재하던 전기와 자기 이론을 통합해 ‘가장 아름다운 방정식’으로 불리는 맥스웰 방정식을 만들고, 빛이 전기장과 자기장이 공간을 따라 전파되는 파동임을 밝혔어요. 통계역학의 시초인 맥스웰 분포도 그의 업적이에요.',
+   story:'칠판에 맥스웰 방정식 네 줄과 전자기파 그림이 있고, 책상에는 전자기 실험 도구가 놓여 있어요. 아인슈타인은 물리학을 맥스웰 이전과 이후로 나눌 수 있다고 했대요.',
+   hints:['아인슈타인이 “물리학은 이 사람 이전과 이후로 나뉜다”고 했어요.','따로 있던 전기와 자기 이론을 하나의 방정식으로 통합했어요.','카드 속 칠판에 아름다운 방정식 네 줄이 적혀 있어요.']},
+  {ko:'마리 퀴리', en:'Marie Curie', b:1867, d:1934, field:'물리학 · 화학', pc:'#e0d0f5',
+   work:'노벨 물리학상과 화학상을 모두 받은 과학자예요. 폐우라늄 광석에서 라듐을 추출하고 방사능 연구의 길을 열었어요.',
+   story:'플라스크가 가득한 실험실에서 빛나는 플라스크를 번쩍 들어 올리고 있어요. 열정적인 여성 과학자의 모습이에요.',
+   hints:['노벨 물리학상과 화학상을 모두 받았어요.','폐우라늄 광석에서 라듐을 추출했어요.','카드 속에서 빛나는 초록 플라스크를 들고 있어요.']},
+  {ko:'알베르트 아인슈타인', en:'Albert Einstein', b:1879, d:1955, field:'물리학', pc:'#ffd2a6',
+   work:'빛이 입자처럼 행동함을 보인 광전효과 연구로 노벨상을 받았어요. 이후 상대성 이론과 질량-에너지 등가 원리를 발표했지요. 취미는 바이올린 연주!',
+   story:'빛처럼 하늘을 가르며 날고 있어요. “빛의 속도로 달린다면 시간은 절대적일까, 상대적일까?” 이런 사고실험으로 상대성 이론을 세웠어요. 과본카의 대표 캐릭터랍니다.',
+   hints:['광전효과 연구로 노벨상을 받았어요.','취미는 바이올린 연주였어요.','“빛의 속도로 달리면 시간은 어떻게 될까?” 사고실험으로 유명해요.']},
+  {ko:'닐스 보어', en:'Niels Bohr', b:1885, d:1962, field:'물리학', pc:'#ffd2a6',
+   work:'전자가 원자핵 주위의 정해진 궤도를 돈다는 원자 모형을 제안했어요. 전자의 수에 따라 원소의 화학적 성질이 결정된다는 것도 밝혔지요. 핵무기의 위험을 경고하며 각국 지도자를 만나 국제원자력기구 설립을 촉구했어요.',
+   story:'칠판에는 여러 궤도를 도는 전자들이, 발밑에는 축구공이 있어요. 동생을 따라 축구를 좋아했고, 아인슈타인·파울리 등 뛰어난 과학자들과 우정을 나눴어요.',
+   hints:['핵의 평화적 이용을 위해 정치인들을 만나 국제원자력기구 설립을 촉구했어요.','전자가 원자핵 주위의 정해진 궤도를 돈다고 설명했어요.','카드 속에서 축구공을 밟고 원자 모형을 가리키고 있어요.']},
+  {ko:'폴 디랙', en:'Paul Dirac', b:1902, d:1984, field:'물리학', pc:'#e0d0f5',
+   work:'양자역학과 양자전기역학의 기초를 세웠어요. 상대론적 양자 파동 방정식인 디랙 방정식으로 반입자의 존재를 수학적으로 예측했지요.',
+   story:'트로피가 놓인 책장 앞에 양복을 입고 서 있어요. 과묵하고 조용한 성격으로 주목받는 것을 싫어했대요. 디랙 방정식은 세상에서 가장 아름다운 방정식 중 하나로 꼽혀요.',
+   hints:['반입자가 존재한다는 것을 수학으로 먼저 예측했어요.','말수가 적고 조용해서 주목받는 걸 싫어했어요.','카드 속에서 양복을 입고 트로피가 놓인 책장 앞에 서 있어요.']},
+  {ko:'그레이스 호퍼', en:'Grace Hopper', b:1906, d:1992, field:'컴퓨터과학 · 수학', pc:'#c9ecb4',
+   work:'수학·수리물리학자로 해군에 입대해 초기 컴퓨터의 프로그래밍을 이끌었어요. ‘버그’라는 말을 널리 알리고 컴파일러 개발에 공헌했지요. 미 해군은 그녀의 이름을 딴 구축함도 만들었어요.',
+   story:'해군 제복을 입고 커다란 컴퓨터 옆에서 프로그래밍을 하고 있어요.',
+   hints:['미 해군이 이 사람의 이름을 따서 구축함 이름을 지었어요.','컴퓨터 ‘버그’와 ‘컴파일러’ 하면 떠오르는 사람이에요.','카드 속에서 해군 제복을 입고 대형 컴퓨터 옆에 서 있어요.']},
+  {ko:'레이첼 카슨', en:'Rachel Carson', b:1907, d:1964, field:'생물학 · 생태학', pc:'#b8efe0',
+   work:'문학소녀에서 과학자가 된 해양생물학자예요. 무분별한 살충제 사용이 야생 생태계를 파괴하고 암을 일으킬 수 있음을 세상에 알렸어요.',
+   story:'숲속 동물과 새들에 둘러싸여 노트에 관찰 기록을 하는 탐험가의 모습이에요.',
+   hints:['살충제가 생태계를 파괴할 수 있다는 것을 세상에 알렸어요.','문학소녀였다가 해양생물학을 공부했어요.','카드 속에서 숲속 동물들 사이에서 노트에 기록하고 있어요.']},
+  {ko:'로잘린드 프랭클린', en:'Rosalind Franklin', b:1920, d:1958, field:'화학 · 결정학', pc:'#ffc4d0',
+   work:'X선 결정학으로 DNA, 바이러스, 석탄과 흑연의 구조를 밝혔어요. 그녀의 X선 회절 사진은 DNA 이중 나선 구조 발견에 결정적이었지만, 허가 없이 사용되었고 그 기여는 오랫동안 제대로 인정받지 못했어요.',
+   story:'뒤편에 DNA 이중 나선 그림이 걸려 있고, 현미경을 들여다보고 있어요.',
+   hints:['이 사람의 X선 사진이 DNA 이중 나선 발견을 이끌었어요.','과학적 기여가 오랫동안 제대로 인정받지 못했어요.','카드 속에서 DNA 그림 앞에서 현미경을 들여다보고 있어요.']},
+  {ko:'조셀린 벨 버넬', en:'Jocelyn Bell Burnell', b:1943, d:null, field:'천문학', pc:'#ffe98a',
+   work:'정확한 간격으로 깜빡이는 전파 신호를 발견했어요. 처음에는 외계 지성체가 보내는 메시지로 생각했지만, 전자기파를 뿜으며 빠르게 자전하는 중성자별(펄서)로 밝혀졌지요.',
+   story:'커다란 전파망원경 앞에서 신호 기록지를 들고 신난 모습! 양갈래 머리에 나비 안경을 쓰고, 하늘에는 귀여운 외계인이 떠 있어요.',
+   hints:['정확한 간격으로 깜빡이는 전파 신호를 처음 발견했어요.','처음엔 외계인이 보낸 신호인 줄 알았대요.','카드 속에 커다란 전파망원경과 외계인이 그려져 있어요.']}
+];
+const pad = n => String(n).padStart(2,'0');
+const img = i => `assets/cards/card${pad(i+1)}.jpg`;
+// 카드 번호 규칙: k번 캐릭터 → k, k+12, k+24번 카드 (관점 6장 단위)
+const cardsOf = i => [i+1, i+13, i+25].map(n => ({n, p: Math.floor((n-1)/6)}));
+
+/* ===================== 내비게이션 ===================== */
+const nav = document.getElementById('nav');
+const toTop = document.getElementById('toTop');
+const onScroll = () => {
+  const y = window.scrollY;
+  nav.classList.toggle('scrolled', y > 40);
+  toTop.classList.toggle('show', y > 900);
+};
+window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
+const navToggle = document.getElementById('navToggle');
+navToggle.addEventListener('click', () => {
+  const open = nav.classList.toggle('open');
+  navToggle.setAttribute('aria-expanded', open);
+  navToggle.setAttribute('aria-label', open ? '메뉴 닫기' : '메뉴 열기');
+});
+document.querySelectorAll('.nav-links a').forEach(a => a.addEventListener('click', () => {
+  nav.classList.remove('open'); navToggle.setAttribute('aria-expanded', false);
+}));
+// 현재 섹션 표시
+const navMap = [...document.querySelectorAll('.nav-links a')].map(a => [a, document.querySelector(a.getAttribute('href'))]);
+const secObs = new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting) navMap.forEach(([a,s]) => a.classList.toggle('active', s === e.target));
+}), {rootMargin:'-45% 0px -50% 0px'});
+navMap.forEach(([,s]) => s && secObs.observe(s));
+
+toTop.addEventListener('click', () => {
+  toTop.classList.add('launch');
+  window.scrollTo({top:0, behavior:'smooth'});
+  setTimeout(() => toTop.classList.remove('launch'), 1100);
+});
+
+/* ===================== 히어로: 별 & 패럴랙스 ===================== */
+const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+(function stars(){
+  const box = document.getElementById('stars'); const frag = document.createDocumentFragment();
+  for (let i=0;i<110;i++){
+    const s = document.createElement('span'); s.className='star';
+    const size = Math.random()<.85 ? 1+Math.random()*1.6 : 2.4+Math.random()*1.4;
+    s.style.cssText = `left:${Math.random()*100}%;top:${Math.random()*92}%;width:${size}px;height:${size}px;--o:${.45+Math.random()*.55};--d:${2+Math.random()*4}s;--delay:${-Math.random()*5}s`;
+    frag.appendChild(s);
+  }
+  for (let i=0;i<14;i++){
+    const s = document.createElement('span'); s.className='sparkle-star'; s.textContent='✦';
+    s.style.cssText = `left:${Math.random()*100}%;top:${Math.random()*85}%;--s:${10+Math.random()*12}px;--o:${.6+Math.random()*.4};--d:${3+Math.random()*4}s;--delay:${-Math.random()*6}s`;
+    frag.appendChild(s);
+  }
+  box.appendChild(frag);
+})();
+if (!reduce && window.matchMedia('(pointer:fine)').matches){
+  const layers = document.querySelectorAll('.parallax');
+  document.querySelector('.hero').addEventListener('mousemove', e => {
+    const x = e.clientX/window.innerWidth - .5, y = e.clientY/window.innerHeight - .5;
+    layers.forEach(l => { const d = +l.dataset.depth; l.style.translate = `${x*d}px ${y*d}px`; });
+  });
+}
+
+/* ===================== 뒷면 색 견본 ===================== */
+(function swatches(){
+  const box = document.getElementById('swatches'); const back = document.getElementById('anaBack');
+  PERSP.forEach((p,i) => {
+    const b = document.createElement('button');
+    b.style.setProperty('--c', p.hex); b.title = `관점 ${i+1}. ${p.name} (${p.range})`;
+    b.setAttribute('aria-label', b.title); b.setAttribute('aria-pressed', i===0);
+    b.addEventListener('click', () => {
+      back.style.borderColor = p.hex; back.style.setProperty('--bk', p.hex);
+      box.querySelectorAll('button').forEach(x => x.setAttribute('aria-pressed', x===b));
+    });
+    box.appendChild(b);
+  });
+})();
+
+/* ===================== 과학자 그리드 & 타임라인 ===================== */
+const grid = document.getElementById('sciGrid');
+SCI.forEach((s,i) => {
+  const b = document.createElement('button');
+  b.className = 'sci-card reveal'; b.style.setProperty('--pc', s.pc);
+  b.setAttribute('aria-label', `${i+1}번 ${s.ko} 자세히 보기`);
+  b.innerHTML = `<span class="sci-num">${i+1}</span><span class="sci-img"><img src="${img(i)}" alt="" loading="lazy" width="600" height="1023"></span>
+    <span class="sci-meta"><b>${s.ko}</b><small>${s.b}–${s.d ?? ''} · ${s.field.split(' · ')[0]}</small></span>`;
+  b.addEventListener('click', () => openModal(i));
+  grid.appendChild(b);
+});
+(function timeline(){
+  const START=1550, END=2026, span=END-START;
+  const axis = document.getElementById('tlAxis'); const rows = document.getElementById('tlRows');
+  [1600,1700,1800,1900,2000].forEach(y => { const t=document.createElement('span'); t.textContent=y; t.style.left=`${(y-START)/span*100}%`; axis.appendChild(t); });
+  SCI.forEach((s,i) => {
+    const r = document.createElement('button'); r.className='tl-row'; r.style.setProperty('--pc', s.pc);
+    r.setAttribute('aria-label', `${s.ko}, ${s.b}년 출생${s.d ? `, ${s.d}년 사망` : ''}`);
+    const end = s.d ?? END, l=(s.b-START)/span*100, w=(end-s.b)/span*100;
+    r.innerHTML = `<span class="tl-name">${i+1}. ${s.ko}</span><span class="tl-track"><span class="tl-bar ${s.d?'':'alive'}" style="left:${l}%;width:${w}%"><em>${s.b}–${s.d ?? ''}</em></span></span>`;
+    r.addEventListener('click', () => openModal(i));
+    rows.appendChild(r);
+  });
+  const fit = () => document.getElementById('timeline').style.setProperty('--labelw', window.innerWidth < 600 ? '112px' : '170px');
+  fit(); window.addEventListener('resize', fit);
+})();
+
+/* ===================== 모달 ===================== */
+const modal = document.getElementById('sciModal'); let cur = 0;
+const $ = id => document.getElementById(id);
+function fillModal(i){
+  const s = SCI[i]; cur = i;
+  modal.style.setProperty('--pc', s.pc);
+  $('mImg').src = img(i); $('mImg').alt = `${i+1}번 ${s.ko} 카드`;
+  $('mNo').textContent = `No. ${i+1}`; $('mField').textContent = s.field;
+  $('mName').textContent = s.ko; $('mEn').textContent = `${s.en} · ${s.b}–${s.d ?? '현재'}`;
+  $('mWork').textContent = s.work; $('mStory').textContent = s.story;
+  $('mCards').innerHTML = cardsOf(i).map(c => `<span style="--c:${PERSP[c.p].hex}">${c.n}번 · ${PERSP[c.p].name}</span>`).join('');
+}
+function openModal(i){ fillModal(i); modal.showModal(); }
+$('mClose').addEventListener('click', () => modal.close());
+$('mPrev').addEventListener('click', () => fillModal((cur+11)%12));
+$('mNext').addEventListener('click', () => fillModal((cur+1)%12));
+modal.addEventListener('click', e => { if (e.target === modal) modal.close(); });
+modal.addEventListener('keydown', e => { if (e.key==='ArrowRight') fillModal((cur+1)%12); if (e.key==='ArrowLeft') fillModal((cur+11)%12); });
+
+/* ===================== 6가지 관점 타일 ===================== */
+const pg = document.getElementById('perspGrid');
+PERSP.forEach((p,i) => {
+  const chars = [0,1,2,3,4,5].map(k => (i%2===0 ? k : k+6));   // 1·3·5관점 → 1~6번 캐릭터, 2·4·6관점 → 7~12번
+  const fan = chars.map((c,j) => `<img src="${img(c)}" alt="" loading="lazy" style="right:${j*17}px;transform:rotate(${(j-2.5)*-6}deg);z-index:${6-j}">`).join('');
+  const d = document.createElement('article');
+  d.className = 'persp reveal'; d.style.setProperty('--c', p.hex);
+  d.innerHTML = `<div class="persp-top"><span class="no">관점 ${i+1}</span><h3>${p.name}</h3><div class="persp-fan" aria-hidden="true">${fan}</div></div>
+    <p>“${p.text}”</p><span class="range">카드 ${p.range} · 6장</span>`;
+  pg.appendChild(d);
+});
+
+/* ===================== 관점 체험 (놀이 2 미리 해보기) ===================== */
+const stage = document.getElementById('tryStage');
+const OPTS = [
+  {k:'agree', mark:'⬤', label:'맞는 것 같아'},
+  {k:'unsure', mark:'?', label:'잘 모르겠어'},
+  {k:'differ', mark:'△', label:'다르게 생각해'}
+];
+let tOrder=[], tIdx=0, tAns={};
+function tryStart(){
+  tOrder = [0,1,2,3,4,5].sort(() => Math.random()-.5); tIdx = 0; tAns = {}; tryRender();
+}
+function tryRender(){
+  if (tIdx >= 6) return tryResult();
+  const p = PERSP[tOrder[tIdx]];
+  stage.innerHTML = `<div class="dots">${tOrder.map((_,j)=>`<i class="${j<=tIdx?'on':''}"></i>`).join('')}</div>
+    <div class="stmt"><small>문장 ${tIdx+1} / 6</small><blockquote>“${p.text}”</blockquote></div>
+    <div class="choices">${OPTS.map(o=>`<button class="choice c-${o.k}" data-k="${o.k}"><span>${o.mark}</span>${o.label}</button>`).join('')}</div>`;
+  stage.querySelectorAll('.choice').forEach(b => b.addEventListener('click', () => { tAns[tOrder[tIdx]] = b.dataset.k; tIdx++; tryRender(); }));
+}
+function tryResult(){
+  const col = k => tOrder.filter(i => tAns[i]===k).map((i,j) => `<span class="chip" style="--c:${PERSP[i].hex};animation-delay:${j*.08}s">${PERSP[i].name}</span>`).join('') || '<span style="font-size:13px;color:var(--muted)">비어 있어요</span>';
+  const agreed = tOrder.filter(i => tAns[i]==='agree').length;
+  const msg = agreed === 0 ? '어떤 문장에도 쉽게 동의하지 않았네요. 신중한 과학자의 자세예요! 왜 다르게 생각했는지 친구에게 이야기해 보세요.'
+    : agreed >= 4 ? '여러 관점에 고루 동의했네요. 서로 부딪히는 문장은 없었는지, 친구와 함께 다시 살펴보세요.'
+    : '내 생각이 조금씩 보이기 시작했나요? 같은 문장을 친구는 어느 칸에 놓았을지 비교해 보세요.';
+  stage.innerHTML = `<div class="result-cols">
+      <div class="rcol"><h4>⬤ 맞는 것 같아</h4>${col('agree')}</div>
+      <div class="rcol"><h4>? 잘 모르겠어</h4>${col('unsure')}</div>
+      <div class="rcol"><h4>△ 다르게 생각해</h4>${col('differ')}</div></div>
+    <p class="result-msg"><strong>${msg}</strong><br>관점에는 정답이 없어요. 중요한 건 <strong>왜 그렇게 생각했는지</strong> 이유를 말하는 거예요.</p>
+    <div class="result-actions"><button class="btn btn-ink" id="tryAgain">다시 해보기</button><a class="btn btn-yellow" href="#games">놀이 방법 보러 가기</a></div>`;
+  document.getElementById('tryAgain').addEventListener('click', tryStart);
+}
+tryStart();
+
+/* ===================== 놀이 방법 탭 ===================== */
+const GAMES = [
+  {short:'내 과본카를 지켜라!', sub:'뺏고 뺏기는 카드 게임', gc:'#ffb35c', people:'6~18인용', tag:'8세 이상 누구나',
+   title:'내 과본카를 지켜라!', lead:'뺏고 뺏기는 과본카! 마음에 드는 카드를 빼앗고 지키며, 같은 과학자 카드 3장을 먼저 모아요.',
+   steps:['카드를 섞어 캐릭터가 보이지 않도록 쌓고, 순서를 정해요.','첫 번째 사람이 카드 한 장을 뽑아 캐릭터를 친구들에게 보여줘요.','다음 사람은 새 카드를 뽑거나, 지금까지 나온 카드 중 마음에 드는 카드를 빼앗아요.','단, 카드는 세 번까지만 주인이 바뀔 수 있어요.','카드를 빼앗긴 사람은 다른 사람의 카드를 빼앗거나 새로 카드를 뽑아요.','같은 캐릭터 카드 3장을 가장 먼저 모은 사람이 승리!'],
+   side:`<div class="tip"><h4><img src="assets/puppy.png" alt="">특별 규칙</h4><p>첫 번째 사람이 원래 자신의 카드를 끝까지 갖고 있으면, 지금까지 나온 카드 중 한 장을 골라 가질 수 있어요.</p></div>
+     <div class="tip"><h4>더 간단한 버전</h4><ul><li>카드를 사람 수대로 똑같이 나눠 앞에 쌓아요.</li><li>모두 동시에 맨 위 카드를 펼치고 승자를 정해요.<br>· 가위바위보로 정하기<br>· 내 카드의 과학자를 10초 안에 설명하기</li><li>이긴 사람이 그 판의 카드를 모두 가져가요. 10분 뒤 카드가 가장 많은 사람이 승리! 🏆</li></ul></div>`},
+  {short:'과본카 이해하기!', sub:'내 관점 들여다보기', gc:'#a8dc6a', people:'2~6인용', tag:'청소년 이상 추천',
+   title:'과본카 이해하기!', lead:'내가 생각하는 과학의 본성은 무엇일까요? 카드 뒷면 문장을 읽고 나의 관점을 들여다봐요.',
+   steps:['36장의 카드를 잘 섞어 캐릭터가 위에 오도록 쌓아요.','순서를 정하고 카드를 한 장씩 가져가요.','카드 뒷면의 과학의 본성 문장을 눈으로 읽어요.','내 생각과 같으면 뒷면이 보이게 내 앞에 놓고, 다르면 맨 아래에 다시 넣어요.','카드가 모두 없어질 때까지 반복해요.','내 앞의 카드가 어떤 관점인지 색으로 정리해 봐요.'],
+   side:`<div class="tip"><h4><img src="assets/puppy.png" alt="">생각 고르기 방법</h4><p>YES / NO로 고르거나, 세 칸으로 나눠 봐요.</p>
+     <div class="sort3"><div><b style="color:var(--green)">⬤</b>맞는 것 같아</div><div><b style="color:var(--orange)">?</b>잘 모르겠어</div><div><b style="color:var(--pink)">△</b>다르게 생각해</div></div></div>
+     <div class="tip"><h4>이렇게 발표해요</h4><div class="say"><span>“나는 과학은 실험만이 아니라 생각도 중요하다고 생각해.”</span><span>“나는 아직 잘 모르겠어. 더 들어보고 싶어.”</span><span>“나는 조금 다르게 생각해. 과학은 사람과도 연결돼 있다고 생각해.”</span></div></div>`},
+  {short:'과본카 같이 하기!', sub:'친구의 관점 들여다보기', gc:'#7fd9f2', people:'6~18인용', tag:'모둠 토론 활동',
+   title:'과본카 같이 하기!', lead:'따분한 과학 수업은 가라! 카드를 교환하고 모둠을 만들어, 친구의 관점과 내 관점을 비교해요.',
+   steps:['카드를 섞어 학생 수만큼 나눠 가져요.','카드 뒷면 문장이 내 관점과 맞는지 살펴보고, 지킬지 교환할지 정해요.','교환 횟수는 제한이 없어요. 교환을 통해 나에게 가장 맞는 카드를 모아요.','이제 친구 3~5명과 그룹을 만들어요.','그룹의 카드를 모아 ‘타당성’을 기준으로 우선순위를 정해요.','우선순위와 그 이유를 다른 친구들에게 설명해요.'],
+   side:`<div class="tip"><h4><img src="assets/puppy.png" alt="">이야기 나누기 질문</h4><div class="say"><span>어떤 카드가 제일 중요해 보여?</span><span>왜 그렇게 생각했어?</span><span>친구 생각과 무엇이 같고, 무엇이 달라?</span><span>우리는 어떤 카드에 함께 동의할 수 있을까?</span></div></div>
+     <div class="tip"><h4>더 쉬운 버전</h4><p>카드를 두 칸으로 나눠 놓아 보세요.<br><strong>“우리 모두 비슷하게 생각한 카드”</strong>와 <strong>“생각이 달랐던 카드”</strong></p></div>`},
+  {short:'내 과본카를 맞혀봐!', sub:'과학자 퀴즈 놀이', gc:'#c9a8e6', people:'2~6인용', tag:'8세 이상 누구나',
+   title:'내 과본카를 맞혀봐!', lead:'과학자의 이름, 생애, 업적을 맞혀 봐요. 문제를 내는 ‘제공자’와 푸는 ‘해결사’가 번갈아 도전해요.',
+   steps:['1번부터 12번까지의 카드를 펼쳐 놓아요.','짝을 지어 문제를 낼 사람(제공자)과 풀 사람(해결사)을 정해요.','해결사가 주사위 두 개를 굴려요. 같은 수가 나오면 해결사가, 아니면 제공자가 카드를 골라요. (주사위가 없으면 가위바위보!)','제공자는 카드 뒷면을 참고해 과학자에 대한 질문을 던져요.','정답이면 카드는 해결사의 것, 틀리면 제공자의 것이 돼요.','역할을 바꿔 진행하고, 카드를 더 많이 가진 사람이 승리!'],
+   side:`<div class="tip"><h4><img src="assets/puppy.png" alt="">힌트 예시</h4><div class="say"><span>“이 사람은 별과 우주를 연구했어.”</span><span>“이 사람은 아주 오래전에 살았어.”</span><span>“이 사람은 실험으로 유명해.”</span><span>“이 사람의 그림에는 망원경이 보여.”</span></div></div>
+     <div class="tip"><h4>더 쉬운 버전 (보기 선택형)</h4><p>“이 사람은 누구일까? 갈릴레오 / 뉴턴 / 아인슈타인”처럼 보기를 주면 더 쉽게 즐길 수 있어요. 아래에서 바로 해 보세요!</p></div>`}
+];
+const tabs = document.getElementById('gameTabs'), panels = document.getElementById('gamePanels');
+GAMES.forEach((g,i) => {
+  const t = document.createElement('button');
+  t.className='tab'; t.id=`tab${i}`; t.setAttribute('role','tab'); t.setAttribute('aria-controls',`panel${i}`);
+  t.setAttribute('aria-selected', i===0); t.tabIndex = i===0 ? 0 : -1; t.style.setProperty('--gc', g.gc);
+  t.innerHTML = `<span class="tn">${i+1}</span><b>${g.short}</b><small>${g.sub}</small>`;
+  tabs.appendChild(t);
+  const p = document.createElement('div');
+  p.className='panel'; p.id=`panel${i}`; p.setAttribute('role','tabpanel'); p.setAttribute('aria-labelledby',`tab${i}`); p.style.setProperty('--gc', g.gc);
+  if (i) p.hidden = true;
+  p.innerHTML = `<div><h3 class="panel-title">놀이 ${i+1}. ${g.title}</h3><p class="panel-sub">${g.lead}</p>
+      <div class="pchips"><span>${g.people}</span><span>${g.tag}</span><span>${g.sub}</span></div>
+      <ol class="steps">${g.steps.map((s,j)=>`<li class="${j===g.steps.length-1?'win':''}">${s}</li>`).join('')}</ol></div>
+    <div class="side">${g.side}</div>`;
+  panels.appendChild(p);
+});
+function selectTab(i, focus){
+  tabs.querySelectorAll('.tab').forEach((t,j) => { t.setAttribute('aria-selected', i===j); t.tabIndex = i===j ? 0 : -1; });
+  panels.querySelectorAll('.panel').forEach((p,j) => p.hidden = i!==j);
+  if (focus) document.getElementById(`tab${i}`).focus();
+}
+tabs.addEventListener('click', e => { const t = e.target.closest('.tab'); if (t) selectTab(+t.id.slice(3)); });
+tabs.addEventListener('keydown', e => {
+  const i = +document.activeElement.id.slice(3); if (isNaN(i)) return;
+  if (e.key==='ArrowRight') selectTab((i+1)%4, true);
+  if (e.key==='ArrowLeft') selectTab((i+3)%4, true);
+});
+
+/* ===================== 과학자 퀴즈 (놀이 4 미리 해보기) ===================== */
+let qAns, qHint, qDone, me=0, dog=0, qBag=[];
+const hintsBox = $('hints'), optsBox = $('options'), qMsg = $('quizMsg');
+function nextQuestion(){
+  if (!qBag.length) qBag = [...Array(12).keys()].sort(() => Math.random()-.5);
+  qAns = qBag.pop(); qHint = 1; qDone = false; qMsg.textContent = '';
+  const others = [...Array(12).keys()].filter(i => i!==qAns).sort(() => Math.random()-.5).slice(0,2);
+  const opts = [qAns, ...others].sort(() => Math.random()-.5);
+  optsBox.innerHTML = opts.map(i => `<button class="opt" data-i="${i}" aria-label="${SCI[i].ko}"><span class="sci-img"><img src="${img(i)}" alt="" width="600" height="1023"></span><span class="nm">${SCI[i].ko}</span></button>`).join('');
+  optsBox.querySelectorAll('.opt').forEach(b => b.addEventListener('click', () => answer(+b.dataset.i, b)));
+  renderHints();
+}
+function renderHints(){
+  const h = SCI[qAns].hints;
+  hintsBox.innerHTML = h.slice(0,qHint).map((t,j) => `<div class="hint"><b>힌트 ${j+1}</b>${t}</div>`).join('')
+    + `<button class="more-hint" id="moreHint" ${qHint>=3||qDone?'disabled':''}>힌트 더 받기 (${qHint}/3)</button>`;
+  $('moreHint').addEventListener('click', () => { qHint++; renderHints(); });
+}
+function answer(i, btn){
+  if (qDone) return; qDone = true;
+  const right = i === qAns;
+  optsBox.querySelectorAll('.opt').forEach(b => {
+    b.disabled = true; const bi = +b.dataset.i;
+    if (bi === qAns) { b.classList.add('right'); b.insertAdjacentHTML('afterbegin','<span class="mark">○</span>'); }
+    else if (b === btn) { b.classList.add('wrong'); b.insertAdjacentHTML('afterbegin','<span class="mark">×</span>'); }
+    else b.classList.add('dim');
+  });
+  if (right) { me++; qMsg.textContent = `정답! ${SCI[qAns].ko} 카드는 이제 내 거예요 🎉`; }
+  else { dog++; qMsg.textContent = `아쉬워요! 정답은 ${SCI[qAns].ko}. 카드는 강아지가 가져가요.`; }
+  $('scoreMe').textContent = me; $('scoreDog').textContent = dog;
+  renderHints();
+}
+$('nextQ').addEventListener('click', nextQuestion);
+nextQuestion();
+
+/* ===================== 과학적 주장의 특징 ===================== */
+const FEATS = [
+  {t:'경험적이다', c:'#f9a43f', d:'측정하거나 셀 수 있는, 감각으로 인지할 수 있는 현상을 다뤄요.', i:'<circle cx="12" cy="12" r="3"/><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/>'},
+  {t:'반증 가능하다', c:'#f47f8c', d:'수집된 증거를 바탕으로 “그렇지 않다”는 것을 보여 줄 수 있어야 해요.', i:'<circle cx="12" cy="12" r="9"/><path d="M8.5 8.5l7 7M15.5 8.5l-7 7"/>'},
+  {t:'재현 가능하다', c:'#4abd61', d:'다른 연구자, 다른 시간과 장소에서도 같은 결과가 나올수록 믿을 만해요.', i:'<path d="M4 12a8 8 0 0 1 14-5.3L20 9"/><path d="M20 4v5h-5"/><path d="M20 12a8 8 0 0 1-14 5.3L4 15"/><path d="M4 20v-5h5"/>'},
+  {t:'잠정적이다', c:'#56d2f5', d:'새로운 실험이나 증거에 의해 이론은 반박되고, 수정되거나 대체될 수 있어요.', i:'<path d="M6 3h12M6 21h12M7 3c0 5 10 5 10 9s-10 4-10 9M17 3c0 5-10 5-10 9s10 4 10 9"/>'},
+  {t:'자기 수정적이다', c:'#9b7ab6', d:'설명력과 예측력이 크고, 확장 가능하며, 개방적인 이론을 높이 평가해요.', i:'<path d="M4 20h4L19 9l-4-4L4 16v4z"/><path d="M13.5 6.5l4 4"/>'},
+  {t:'간결성을 중요시한다', c:'#dcb400', d:'예외나 지엽적인 가정이 적은, 상대적으로 단순한 이론을 선호해요.', i:'<path d="M4 7h16M4 12h10M4 17h6"/>'},
+  {t:'논리적 일관성을 요구한다', c:'#3fc1c9', d:'정밀한 검증을 견뎌 내고, 논리 전개에서 일관된 주장을 해야 해요.', i:'<path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/>'}
+];
+document.getElementById('featGrid').innerHTML = FEATS.map((f,i) => `<div class="feat reveal" style="--c:${f.c}"><div class="ico"><svg viewBox="0 0 24 24">${f.i}</svg></div><b>${i+1}. 과학은 ${f.t}</b><p>${f.d}</p></div>`).join('')
+  + `<div class="feat wide reveal"><b>“과학의 궁극적인 목적은 자연현상을 지배하는 모든 법칙을 티셔츠 위에 써놓을 수 있는 하나의 방정식으로 만들어내는 것”</b><p>— 리언 레더먼 (Leon Lederman)</p></div>`;
+document.querySelectorAll('[data-reveal]').forEach(b => b.addEventListener('click', () => {
+  const a = document.getElementById(b.dataset.reveal); a.hidden = !a.hidden;
+}));
+
+/* ===================== 이메일 복사 ===================== */
+document.documentElement.lang = 'ko';
+$('copyMail').addEventListener('click', e => {
+  const btn = e.currentTarget, text = $('mailText').textContent;
+  const done = () => { btn.textContent = '복사했어요'; setTimeout(() => btn.textContent = '이메일 복사', 1800); };
+  const fallback = () => { const r = document.createRange(); r.selectNodeContents($('mailText')); const s = getSelection(); s.removeAllRanges(); s.addRange(r); btn.textContent = '선택됨 · 직접 복사하세요'; };
+  try { navigator.clipboard.writeText(text).then(done, fallback); } catch (err) { fallback(); }
+});
+
+/* ===================== 교사 무료 신청 ===================== */
+// 실제 홈페이지에서는 FormSubmit이 신청서를 ssesmul@gmail.com으로 보냅니다.
+// (첫 신청 때 ssesmul@gmail.com으로 오는 'Activate Form' 메일을 한 번 눌러야 발송이 시작돼요.)
+const FORM_ENDPOINT = 'https://formsubmit.co/ajax/ssesmul@gmail.com';
+const fForm = $('freeForm'), fErr = $('freeError'), fBtn = $('freeSubmit');
+const fFields = { name:$('freeName'), email:$('freeEmail'), addr:$('freeAddr'), phone:$('freePhone') };
+let fLast = null;
+function fValidate(){
+  const v = Object.fromEntries(Object.entries(fFields).map(([k,el]) => [k, el.value.trim()]));
+  const bad = [];
+  if (!v.name) bad.push(['name','받는 사람']);
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.email)) bad.push(['email','이메일']);
+  if (v.addr.length < 6) bad.push(['addr','학교 주소']);
+  if (v.phone.replace(/\D/g,'').length < 9) bad.push(['phone','연락처']);
+  Object.entries(fFields).forEach(([k,el]) => el.setAttribute('aria-invalid', bad.some(b => b[0]===k)));
+  if (bad.length){ fErr.textContent = `다음 칸을 확인해 주세요: ${bad.map(b=>b[1]).join(', ')}`; fErr.hidden = false; fFields[bad[0][0]].focus(); return null; }
+  if (!$('freeAgree').checked){ fErr.textContent = '개인정보 수집·이용에 동의해 주세요.'; fErr.hidden = false; $('freeAgree').focus(); return null; }
+  fErr.hidden = true; return v;
+}
+function fText(v){
+  return `[과본카 교사 무료 신청]\n받는 사람: ${v.name}\n이메일: ${v.email}\n학교 주소: ${v.addr}\n연락처: ${v.phone}\n개인정보 수집·이용 동의: 동의함`;
+}
+async function fSend(v){
+  const ctrl = new AbortController(); const t = setTimeout(() => ctrl.abort(), 15000);
+  try {
+    const res = await fetch(FORM_ENDPOINT, {
+      method:'POST', signal: ctrl.signal,
+      headers:{'Content-Type':'application/json','Accept':'application/json'},
+      body: JSON.stringify({
+        _subject:`[과본카] 교사 무료 신청 - ${v.name}`, _template:'table', _captcha:'false', _honey: $('freeHoney').value,
+        '받는 사람': v.name, email: v.email, '학교 주소': v.addr, '연락처': v.phone, '개인정보 수집·이용 동의':'동의함'
+      })
+    });
+    const j = await res.json().catch(() => ({}));
+    return res.ok && String(j.success) === 'true';
+  } catch (e) { return false; } finally { clearTimeout(t); }
+}
+function fShow(which){ fForm.hidden = which !== 'form'; $('freeDone').hidden = which !== 'done'; $('freeFail').hidden = which !== 'fail'; }
+fForm.addEventListener('submit', async e => {
+  e.preventDefault();
+  const v = fValidate(); if (!v) return;
+  fLast = v; fBtn.disabled = true; fBtn.textContent = '보내는 중…';
+  const ok = $('freeHoney').value ? true : await fSend(v);
+  fBtn.disabled = false; fBtn.textContent = '신청서 보내기';
+  if (ok){
+    $('freeDoneMsg').textContent = `신청서가 세스물로 전달되었어요. 확인 후 학교 주소로 착불 발송해 드려요. (받는 사람: ${v.name})`;
+    fForm.reset(); fShow('done');
+  } else {
+    $('freeCopyText').value = fText(v); fShow('fail');
+  }
+  (ok ? $('freeAgain') : $('freeCopy')).focus({preventScroll:true});
+});
+Object.values(fFields).forEach(el => el.addEventListener('input', () => el.removeAttribute('aria-invalid')));
+$('freeAgain').addEventListener('click', () => { fShow('form'); fFields.name.focus(); });
+$('freeRetry').addEventListener('click', () => { fShow('form'); });
+$('freeCopy').addEventListener('click', e => {
+  const btn = e.currentTarget, ta = $('freeCopyText');
+  const fallback = () => { ta.focus(); ta.select(); btn.textContent = '선택됨 · 직접 복사하세요'; };
+  try { navigator.clipboard.writeText(ta.value).then(() => { btn.textContent = '복사했어요'; setTimeout(() => btn.textContent = '신청 내용 복사', 1800); }, fallback); } catch (err) { fallback(); }
+});
+
+/* ===================== 스크롤 등장 & 숫자 ===================== */
+const io = new IntersectionObserver(es => es.forEach(e => {
+  if (!e.isIntersecting) return;
+  e.target.classList.add('in'); io.unobserve(e.target);
+  const n = e.target.querySelector('[data-count]');
+  if (n && !reduce){ const to = +n.dataset.count; let v = 0; const step = () => { v++; n.textContent = v; if (v < to) requestAnimationFrame(step); }; n.textContent = 0; setTimeout(step, 150); }
+}), {threshold:.12, rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach((el,i) => { el.style.transitionDelay = `${(i%4)*70}ms`; io.observe(el); });
+</script>
+</body>
+</html>
